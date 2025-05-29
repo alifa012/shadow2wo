@@ -1,0 +1,1524 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <meta name="csrf-token" content="riLyqiivCgOQUNkd8UR3dwKMEsBO6qNy06gXcXgO">
+
+    <title></title>
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://darkdeep.shop/final/assets/css/vendors/iconsax.css">
+    <link rel="stylesheet" id="rtl-link" type="text/css" href="https://darkdeep.shop/final/assets/css/vendors/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://darkdeep.shop/final/assets/css/vendors/swiper-bundle.min.css">
+    <link rel="stylesheet" id="change-link" type="text/css" href="https://darkdeep.shop/final/assets/css/style.css">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" integrity="sha512-INSERT_HASH_HERE" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+<!-- <style>:root{--swal2-outline: 0 0 0 3px rgba(100, 150, 200, 0.5);--swal2-container-padding: 0.625em;--swal2-backdrop: rgba(0, 0, 0, 0.4);--swal2-backdrop-transition: background-color 0.1s;--swal2-width: 32em;--swal2-padding: 0 0 1.25em;--swal2-border: none;--swal2-border-radius: 0.3125rem;--swal2-background: white;--swal2-color: #545454;--swal2-footer-border-color: #eee;--swal2-show-animation: swal2-show 0.3s;--swal2-hide-animation: swal2-hide 0.15s forwards;--swal2-icon-zoom: 1;--swal2-icon-animations: true;--swal2-title-padding: 0.8em 1em 0;--swal2-html-container-padding: 1em 1.6em 0.3em;--swal2-input-border-radius: 0.1875em;--swal2-input-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06), 0 0 0 3px transparent;--swal2-input-background: transparent;--swal2-input-transition: border-color 0.2s, box-shadow 0.2s;--swal2-progress-step-background: #add8e6;--swal2-validation-message-background: #f0f0f0;--swal2-validation-message-color: #666;--swal2-close-button-position: initial;--swal2-close-button-inset: auto;--swal2-close-button-font-size: 2.5em;--swal2-close-button-color: #ccc;--swal2-close-button-transition: color 0.2s, box-shadow 0.2s;--swal2-close-button-outline: initial;--swal2-close-button-box-shadow: inset 0 0 0 3px transparent;--swal2-close-button-focus-box-shadow: inset var(--swal2-outline);--swal2-close-button-hover-transform: none;--swal2-button-transition: background-color 0.2s, box-shadow 0.2s;--swal2-confirm-button-border: 0;--swal2-confirm-button-border-radius: 0.25em;--swal2-confirm-button-background-color: #7066e0;--swal2-confirm-button-color: #fff;--swal2-deny-button-border: 0;--swal2-deny-button-border-radius: 0.25em;--swal2-deny-button-background-color: #dc3741;--swal2-deny-button-color: #fff;--swal2-cancel-button-border: 0;--swal2-cancel-button-border-radius: 0.25em;--swal2-cancel-button-background-color: #6e7881;--swal2-cancel-button-color: #fff;--swal2-toast-show-animation: swal2-toast-show 0.5s;--swal2-toast-hide-animation: swal2-toast-hide 0.1s forwards;--swal2-toast-border: none;--swal2-toast-box-shadow: 0 0 1px hsl(0deg 0% 0% / 0.075), 0 1px 2px hsl(0deg 0% 0% / 0.075), 1px 2px 4px hsl(0deg 0% 0% / 0.075), 1px 3px 8px hsl(0deg 0% 0% / 0.075), 2px 4px 16px hsl(0deg 0% 0% / 0.075)}[data-swal2-theme=dark]{--swal2-dark-theme-black: #19191a;--swal2-dark-theme-white: #e1e1e1;--swal2-background: var(--swal2-dark-theme-black);--swal2-color: var(--swal2-dark-theme-white);--swal2-footer-border-color: #555;--swal2-input-background: color-mix(in srgb, var(--swal2-dark-theme-black), var(--swal2-dark-theme-white) 10%);--swal2-validation-message-background: color-mix( in srgb, var(--swal2-dark-theme-black), var(--swal2-dark-theme-white) 10% );--swal2-validation-message-color: var(--swal2-dark-theme-white)}@media(prefers-color-scheme: dark){[data-swal2-theme=auto]{--swal2-dark-theme-black: #19191a;--swal2-dark-theme-white: #e1e1e1;--swal2-background: var(--swal2-dark-theme-black);--swal2-color: var(--swal2-dark-theme-white);--swal2-footer-border-color: #555;--swal2-input-background: color-mix(in srgb, var(--swal2-dark-theme-black), var(--swal2-dark-theme-white) 10%);--swal2-validation-message-background: color-mix( in srgb, var(--swal2-dark-theme-black), var(--swal2-dark-theme-white) 10% );--swal2-validation-message-color: var(--swal2-dark-theme-white)}}body.swal2-shown:not(.swal2-no-backdrop,.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto !important}body.swal2-no-backdrop .swal2-container{background-color:rgba(0,0,0,0) !important;pointer-events:none}body.swal2-no-backdrop .swal2-container .swal2-popup{pointer-events:all}body.swal2-no-backdrop .swal2-container .swal2-modal{box-shadow:0 0 10px var(--swal2-backdrop)}body.swal2-toast-shown .swal2-container{box-sizing:border-box;width:360px;max-width:100%;background-color:rgba(0,0,0,0);pointer-events:none}body.swal2-toast-shown .swal2-container.swal2-top{inset:0 auto auto 50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{inset:0 0 auto auto}body.swal2-toast-shown .swal2-container.swal2-top-start,body.swal2-toast-shown .swal2-container.swal2-top-left{inset:0 auto auto 0}body.swal2-toast-shown .swal2-container.swal2-center-start,body.swal2-toast-shown .swal2-container.swal2-center-left{inset:50% auto auto 0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{inset:50% auto auto 50%;transform:translate(-50%, -50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{inset:50% 0 auto auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-start,body.swal2-toast-shown .swal2-container.swal2-bottom-left{inset:auto auto 0 0}body.swal2-toast-shown .swal2-container.swal2-bottom{inset:auto auto 0 50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{inset:auto 0 0 auto}@media print{body.swal2-shown:not(.swal2-no-backdrop,.swal2-toast-shown){overflow-y:scroll !important}body.swal2-shown:not(.swal2-no-backdrop,.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop,.swal2-toast-shown) .swal2-container{position:static !important}}div:where(.swal2-container){display:grid;position:fixed;z-index:1060;inset:0;box-sizing:border-box;grid-template-areas:"top-start     top            top-end" "center-start  center         center-end" "bottom-start  bottom-center  bottom-end";grid-template-rows:minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, auto);height:100%;padding:var(--swal2-container-padding);overflow-x:hidden;transition:var(--swal2-backdrop-transition);-webkit-overflow-scrolling:touch}div:where(.swal2-container).swal2-backdrop-show,div:where(.swal2-container).swal2-noanimation{background:var(--swal2-backdrop)}div:where(.swal2-container).swal2-backdrop-hide{background:rgba(0,0,0,0) !important}div:where(.swal2-container).swal2-top-start,div:where(.swal2-container).swal2-center-start,div:where(.swal2-container).swal2-bottom-start{grid-template-columns:minmax(0, 1fr) auto auto}div:where(.swal2-container).swal2-top,div:where(.swal2-container).swal2-center,div:where(.swal2-container).swal2-bottom{grid-template-columns:auto minmax(0, 1fr) auto}div:where(.swal2-container).swal2-top-end,div:where(.swal2-container).swal2-center-end,div:where(.swal2-container).swal2-bottom-end{grid-template-columns:auto auto minmax(0, 1fr)}div:where(.swal2-container).swal2-top-start>.swal2-popup{align-self:start}div:where(.swal2-container).swal2-top>.swal2-popup{grid-column:2;place-self:start center}div:where(.swal2-container).swal2-top-end>.swal2-popup,div:where(.swal2-container).swal2-top-right>.swal2-popup{grid-column:3;place-self:start end}div:where(.swal2-container).swal2-center-start>.swal2-popup,div:where(.swal2-container).swal2-center-left>.swal2-popup{grid-row:2;align-self:center}div:where(.swal2-container).swal2-center>.swal2-popup{grid-column:2;grid-row:2;place-self:center center}div:where(.swal2-container).swal2-center-end>.swal2-popup,div:where(.swal2-container).swal2-center-right>.swal2-popup{grid-column:3;grid-row:2;place-self:center end}div:where(.swal2-container).swal2-bottom-start>.swal2-popup,div:where(.swal2-container).swal2-bottom-left>.swal2-popup{grid-column:1;grid-row:3;align-self:end}div:where(.swal2-container).swal2-bottom>.swal2-popup{grid-column:2;grid-row:3;place-self:end center}div:where(.swal2-container).swal2-bottom-end>.swal2-popup,div:where(.swal2-container).swal2-bottom-right>.swal2-popup{grid-column:3;grid-row:3;place-self:end end}div:where(.swal2-container).swal2-grow-row>.swal2-popup,div:where(.swal2-container).swal2-grow-fullscreen>.swal2-popup{grid-column:1/4;width:100%}div:where(.swal2-container).swal2-grow-column>.swal2-popup,div:where(.swal2-container).swal2-grow-fullscreen>.swal2-popup{grid-row:1/4;align-self:stretch}div:where(.swal2-container).swal2-no-transition{transition:none !important}div:where(.swal2-container)[popover]{width:auto;border:0}div:where(.swal2-container) div:where(.swal2-popup){display:none;position:relative;box-sizing:border-box;grid-template-columns:minmax(0, 100%);width:var(--swal2-width);max-width:100%;padding:var(--swal2-padding);border:var(--swal2-border);border-radius:var(--swal2-border-radius);background:var(--swal2-background);color:var(--swal2-color);font-family:inherit;font-size:1rem;container-name:swal2-popup}div:where(.swal2-container) div:where(.swal2-popup):focus{outline:none}div:where(.swal2-container) div:where(.swal2-popup).swal2-loading{overflow-y:hidden}div:where(.swal2-container) div:where(.swal2-popup).swal2-draggable{cursor:grab}div:where(.swal2-container) div:where(.swal2-popup).swal2-draggable div:where(.swal2-icon){cursor:grab}div:where(.swal2-container) div:where(.swal2-popup).swal2-dragging{cursor:grabbing}div:where(.swal2-container) div:where(.swal2-popup).swal2-dragging div:where(.swal2-icon){cursor:grabbing}div:where(.swal2-container) h2:where(.swal2-title){position:relative;max-width:100%;margin:0;padding:var(--swal2-title-padding);color:inherit;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word;cursor:initial}div:where(.swal2-container) div:where(.swal2-actions){display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:auto;margin:1.25em auto 0;padding:0}div:where(.swal2-container) div:where(.swal2-loader){display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0 1.875em;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 rgba(0,0,0,0) #2778c4 rgba(0,0,0,0)}div:where(.swal2-container) button:where(.swal2-styled){margin:.3125em;padding:.625em 1.1em;transition:var(--swal2-button-transition);box-shadow:0 0 0 3px rgba(0,0,0,0);font-weight:500}div:where(.swal2-container) button:where(.swal2-styled):not([disabled]){cursor:pointer}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm){border:var(--swal2-confirm-button-border);border-radius:var(--swal2-confirm-button-border-radius);background:initial;background-color:var(--swal2-confirm-button-background-color);color:var(--swal2-confirm-button-color);font-size:1em}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm):hover{background-color:color-mix(in srgb, var(--swal2-confirm-button-background-color), black 10%)}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm):active{background-color:color-mix(in srgb, var(--swal2-confirm-button-background-color), black 20%)}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-deny){border:var(--swal2-deny-button-border);border-radius:var(--swal2-deny-button-border-radius);background:initial;background-color:var(--swal2-deny-button-background-color);color:var(--swal2-deny-button-color);font-size:1em}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-deny):hover{background-color:color-mix(in srgb, var(--swal2-deny-button-background-color), black 10%)}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-deny):active{background-color:color-mix(in srgb, var(--swal2-deny-button-background-color), black 20%)}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel){border:var(--swal2-cancel-button-border);border-radius:var(--swal2-cancel-button-border-radius);background:initial;background-color:var(--swal2-cancel-button-background-color);color:var(--swal2-cancel-button-color);font-size:1em}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel):hover{background-color:color-mix(in srgb, var(--swal2-cancel-button-background-color), black 10%)}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel):active{background-color:color-mix(in srgb, var(--swal2-cancel-button-background-color), black 20%)}div:where(.swal2-container) button:where(.swal2-styled):focus-visible{outline:none;box-shadow:var(--swal2-action-button-outline)}div:where(.swal2-container) button:where(.swal2-styled)[disabled]:not(.swal2-loading){opacity:.4}div:where(.swal2-container) button:where(.swal2-styled)::-moz-focus-inner{border:0}div:where(.swal2-container) div:where(.swal2-footer){margin:1em 0 0;padding:1em 1em 0;border-top:1px solid var(--swal2-footer-border-color);color:inherit;font-size:1em;text-align:center;cursor:initial}div:where(.swal2-container) .swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;grid-column:auto !important;overflow:hidden;border-bottom-right-radius:var(--swal2-border-radius);border-bottom-left-radius:var(--swal2-border-radius)}div:where(.swal2-container) div:where(.swal2-timer-progress-bar){width:100%;height:.25em;background:rgba(0,0,0,.2)}div:where(.swal2-container) img:where(.swal2-image){max-width:100%;margin:2em auto 1em;cursor:initial}div:where(.swal2-container) button:where(.swal2-close){position:var(--swal2-close-button-position);inset:var(--swal2-close-button-inset);z-index:2;align-items:center;justify-content:center;width:1.2em;height:1.2em;margin-top:0;margin-right:0;margin-bottom:-1.2em;padding:0;overflow:hidden;transition:var(--swal2-close-button-transition);border:none;border-radius:var(--swal2-border-radius);outline:var(--swal2-close-button-outline);background:rgba(0,0,0,0);color:var(--swal2-close-button-color);font-family:monospace;font-size:var(--swal2-close-button-font-size);cursor:pointer;justify-self:end}div:where(.swal2-container) button:where(.swal2-close):hover{transform:var(--swal2-close-button-hover-transform);background:rgba(0,0,0,0);color:#f27474}div:where(.swal2-container) button:where(.swal2-close):focus-visible{outline:none;box-shadow:var(--swal2-close-button-focus-box-shadow)}div:where(.swal2-container) button:where(.swal2-close)::-moz-focus-inner{border:0}div:where(.swal2-container) div:where(.swal2-html-container){z-index:1;justify-content:center;margin:0;padding:var(--swal2-html-container-padding);overflow:auto;color:inherit;font-size:1.125em;font-weight:normal;line-height:normal;text-align:center;word-wrap:break-word;word-break:break-word;cursor:initial}div:where(.swal2-container) input:where(.swal2-input),div:where(.swal2-container) input:where(.swal2-file),div:where(.swal2-container) textarea:where(.swal2-textarea),div:where(.swal2-container) select:where(.swal2-select),div:where(.swal2-container) div:where(.swal2-radio),div:where(.swal2-container) label:where(.swal2-checkbox){margin:1em 2em 3px}div:where(.swal2-container) input:where(.swal2-input),div:where(.swal2-container) input:where(.swal2-file),div:where(.swal2-container) textarea:where(.swal2-textarea){box-sizing:border-box;width:auto;transition:var(--swal2-input-transition);border:1px solid #d9d9d9;border-radius:var(--swal2-input-border-radius);background:var(--swal2-input-background);box-shadow:var(--swal2-input-box-shadow);color:inherit;font-size:1.125em}div:where(.swal2-container) input:where(.swal2-input).swal2-inputerror,div:where(.swal2-container) input:where(.swal2-file).swal2-inputerror,div:where(.swal2-container) textarea:where(.swal2-textarea).swal2-inputerror{border-color:#f27474 !important;box-shadow:0 0 2px #f27474 !important}div:where(.swal2-container) input:where(.swal2-input):focus,div:where(.swal2-container) input:where(.swal2-file):focus,div:where(.swal2-container) textarea:where(.swal2-textarea):focus{border:1px solid #b4dbed;outline:none;box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container) input:where(.swal2-input)::placeholder,div:where(.swal2-container) input:where(.swal2-file)::placeholder,div:where(.swal2-container) textarea:where(.swal2-textarea)::placeholder{color:#ccc}div:where(.swal2-container) .swal2-range{margin:1em 2em 3px;background:var(--swal2-background)}div:where(.swal2-container) .swal2-range input{width:80%}div:where(.swal2-container) .swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}div:where(.swal2-container) .swal2-range input,div:where(.swal2-container) .swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}div:where(.swal2-container) .swal2-input{height:2.625em;padding:0 .75em}div:where(.swal2-container) .swal2-file{width:75%;margin-right:auto;margin-left:auto;background:var(--swal2-input-background);font-size:1.125em}div:where(.swal2-container) .swal2-textarea{height:6.75em;padding:.75em}div:where(.swal2-container) .swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:var(--swal2-input-background);color:inherit;font-size:1.125em}div:where(.swal2-container) .swal2-radio,div:where(.swal2-container) .swal2-checkbox{align-items:center;justify-content:center;background:var(--swal2-background);color:inherit}div:where(.swal2-container) .swal2-radio label,div:where(.swal2-container) .swal2-checkbox label{margin:0 .6em;font-size:1.125em}div:where(.swal2-container) .swal2-radio input,div:where(.swal2-container) .swal2-checkbox input{flex-shrink:0;margin:0 .4em}div:where(.swal2-container) label:where(.swal2-input-label){display:flex;justify-content:center;margin:1em auto 0}div:where(.swal2-container) div:where(.swal2-validation-message){align-items:center;justify-content:center;margin:1em 0 0;padding:.625em;overflow:hidden;background:var(--swal2-validation-message-background);color:var(--swal2-validation-message-color);font-size:1em;font-weight:300}div:where(.swal2-container) div:where(.swal2-validation-message)::before{content:"!";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}div:where(.swal2-container) .swal2-progress-steps{flex-wrap:wrap;align-items:center;max-width:100%;margin:1.25em auto;padding:0;background:rgba(0,0,0,0);font-weight:600}div:where(.swal2-container) .swal2-progress-steps li{display:inline-block;position:relative}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step{z-index:20;flex-shrink:0;width:2em;height:2em;border-radius:2em;background:#2778c4;color:#fff;line-height:2em;text-align:center}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#2778c4}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:var(--swal2-progress-step-background);color:#fff}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:var(--swal2-progress-step-background)}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step-line{z-index:10;flex-shrink:0;width:2.5em;height:.4em;margin:0 -1px;background:#2778c4}div:where(.swal2-icon){position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:2.5em auto .6em;zoom:var(--swal2-icon-zoom);border:.25em solid rgba(0,0,0,0);border-radius:50%;border-color:#000;font-family:inherit;line-height:5em;cursor:default;user-select:none}div:where(.swal2-icon) .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}div:where(.swal2-icon).swal2-error{border-color:#f27474;color:#f27474}div:where(.swal2-icon).swal2-error .swal2-x-mark{position:relative;flex-grow:1}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}@container swal2-popup style(--swal2-icon-animations:true){div:where(.swal2-icon).swal2-error.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-error.swal2-icon-show .swal2-x-mark{animation:swal2-animate-error-x-mark .5s}}div:where(.swal2-icon).swal2-warning{border-color:#f8bb86;color:#f8bb86}@container swal2-popup style(--swal2-icon-animations:true){div:where(.swal2-icon).swal2-warning.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-warning.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .5s}}div:where(.swal2-icon).swal2-info{border-color:#3fc3ee;color:#3fc3ee}@container swal2-popup style(--swal2-icon-animations:true){div:where(.swal2-icon).swal2-info.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-info.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .8s}}div:where(.swal2-icon).swal2-question{border-color:#87adbd;color:#87adbd}@container swal2-popup style(--swal2-icon-animations:true){div:where(.swal2-icon).swal2-question.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-question.swal2-icon-show .swal2-icon-content{animation:swal2-animate-question-mark .8s}}div:where(.swal2-icon).swal2-success{border-color:#a5dc86;color:#a5dc86}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;border-radius:50%}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}div:where(.swal2-icon).swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-0.25em;left:-0.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}div:where(.swal2-icon).swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}div:where(.swal2-icon).swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}@container swal2-popup style(--swal2-icon-animations:true){div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-animate-success-line-tip .75s}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-animate-success-line-long .75s}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-circular-line-right{animation:swal2-rotate-success-circular-line 4.25s ease-in}}[class^=swal2]{-webkit-tap-highlight-color:rgba(0,0,0,0)}.swal2-show{animation:var(--swal2-show-animation)}.swal2-hide{animation:var(--swal2-hide-animation)}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{margin-right:initial;margin-left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}.swal2-toast{box-sizing:border-box;grid-column:1/4 !important;grid-row:1/4 !important;grid-template-columns:min-content auto min-content;padding:1em;overflow-y:hidden;border:var(--swal2-toast-border);background:var(--swal2-background);box-shadow:var(--swal2-toast-box-shadow);pointer-events:all}.swal2-toast>*{grid-column:2}.swal2-toast h2:where(.swal2-title){margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-toast .swal2-loading{justify-content:center}.swal2-toast input:where(.swal2-input){height:2em;margin:.5em;font-size:1em}.swal2-toast .swal2-validation-message{font-size:1em}.swal2-toast div:where(.swal2-footer){margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-toast button:where(.swal2-close){grid-column:3/3;grid-row:1/99;align-self:center;width:.8em;height:.8em;margin:0;font-size:2em}.swal2-toast div:where(.swal2-html-container){margin:.5em 1em;padding:0;overflow:initial;font-size:1em;text-align:initial}.swal2-toast div:where(.swal2-html-container):empty{padding:0}.swal2-toast .swal2-loader{grid-column:1;grid-row:1/99;align-self:center;width:2em;height:2em;margin:.25em}.swal2-toast .swal2-icon{grid-column:1;grid-row:1/99;align-self:center;width:2em;min-width:2em;height:2em;margin:0 .5em 0 0}.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:bold}.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-toast div:where(.swal2-actions){justify-content:flex-start;height:auto;margin:0;margin-top:.5em;padding:0 .5em}.swal2-toast button:where(.swal2-styled){margin:.25em .5em;padding:.4em .6em;font-size:1em}.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;border-radius:50%}.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.8em;left:-0.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}@container swal2-popup style(--swal2-icon-animations:true){.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-toast-animate-success-line-tip .75s}.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-toast-animate-success-line-long .75s}}.swal2-toast.swal2-show{animation:var(--swal2-toast-show-animation)}.swal2-toast.swal2-hide{animation:var(--swal2-toast-hide-animation)}@keyframes swal2-show{0%{transform:scale(0.7)}45%{transform:scale(1.05)}80%{transform:scale(0.95)}100%{transform:scale(1)}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(0.5);opacity:0}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-0.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(0.4);opacity:0}50%{margin-top:1.625em;transform:scale(0.4);opacity:0}80%{margin-top:-0.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0deg);opacity:1}}@keyframes swal2-rotate-loading{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}@keyframes swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@keyframes swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15deg);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-toast-show{0%{transform:translateY(-0.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(0.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0deg)}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-0.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}</style><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-2d0d2b7c.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-2d224aff.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-2d0aef27.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-2d0b383d.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-2d0da3af.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-4fe9d5dd.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-7941cc06.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-51872844.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-2d0c8092.js"></script><style type="text/css">#qmfvibu7o7pk1748009840193 {outline:none !important;
+visibility:visible !important;
+resize:none !important;
+box-shadow:none !important;
+overflow:visible !important;
+background:none !important;
+opacity:1 !important;
+filter:alpha(opacity=100) !important;
+-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important;
+-mz-opacity:1 !important;
+-khtml-opacity:1 !important;
+top:auto !important;
+right:0px !important;
+bottom:0px !important;
+left:auto !important;
+position:fixed !important;
+border:0 !important;
+min-height:0px  !important;
+min-width:0px  !important;
+max-height:none  !important;
+max-width:none  !important;
+padding:0px !important;
+margin:0px !important;
+-moz-transition-property:none !important;
+-webkit-transition-property:none !important;
+-o-transition-property:none !important;
+transition-property:none !important;
+transform:none !important;
+-webkit-transform:none !important;
+-ms-transform:none !important;
+width:auto !important;
+height:auto  !important;
+display:none !important;
+z-index:2000000000 !important;
+background-color:transparent !important;
+cursor:none !important;
+float:none !important;
+border-radius:unset !important;
+pointer-events:auto !important;
+clip:auto !important;
+color-scheme:light !important;}#qmfvibu7o7pk1748009840193.widget-hidden {display: none !important;}#qmfvibu7o7pk1748009840193.widget-visible {display: block !important;}
+@media print{
+ #qmfvibu7o7pk1748009840193.widget-visible { 
+display: none !important;
+ }
+ 
+}</style><style type="text/css">.tawk-button-hover[data-v-70fc860f]:focus,.tawk-button-hover[data-v-70fc860f]:hover{background-color:hsla(0,0%,100%,.2)!important;border-radius:5px!important}</style><style type="text/css">@keyframes tawkMaxOpen{0%{opacity:0;transform:translate(0, 30px);;}to{opacity:1;transform:translate(0, 0px);}}@-moz-keyframes tawkMaxOpen{0%{opacity:0;transform:translate(0, 30px);;}to{opacity:1;transform:translate(0, 0px);}}@-webkit-keyframes tawkMaxOpen{0%{opacity:0;transform:translate(0, 30px);;}to{opacity:1;transform:translate(0, 0px);}}#m2puia4h21rc1748009841893.open{animation : tawkMaxOpen .25s ease!important;}@keyframes tawkMaxClose{from{opacity: 1;transform:translate(0, 0px);;}to{opacity: 0;transform:translate(0, 30px);;}}@-moz-keyframes tawkMaxClose{from{opacity: 1;transform:translate(0, 0px);;}to{opacity: 0;transform:translate(0, 30px);;}}@-webkit-keyframes tawkMaxClose{from{opacity: 1;transform:translate(0, 0px);;}to{opacity: 0;transform:translate(0, 30px);;}}#m2puia4h21rc1748009841893.closed{animation: tawkMaxClose .25s ease!important}</style></head>
+
+<body class="index-page"><div hidden="" id="sprite-plyr"><!--?xml version="1.0" encoding="UTF-8"?--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="plyr-airplay" viewBox="0 0 18 18"><path d="M16 1H2a1 1 0 00-1 1v10a1 1 0 001 1h3v-2H3V3h12v8h-2v2h3a1 1 0 001-1V2a1 1 0 00-1-1z"></path><path d="M4 17h10l-5-6z"></path></symbol><symbol id="plyr-captions-off" viewBox="0 0 18 18"><path d="M1 1c-.6 0-1 .4-1 1v11c0 .6.4 1 1 1h4.6l2.7 2.7c.2.2.4.3.7.3.3 0 .5-.1.7-.3l2.7-2.7H17c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1H1zm4.52 10.15c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41C8.47 4.96 7.46 3.76 5.5 3.76c-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69zm7.57 0c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41c-.28-1.15-1.29-2.35-3.25-2.35-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69z" fill-rule="evenodd" fill-opacity=".5"></path></symbol><symbol id="plyr-captions-on" viewBox="0 0 18 18"><path d="M1 1c-.6 0-1 .4-1 1v11c0 .6.4 1 1 1h4.6l2.7 2.7c.2.2.4.3.7.3.3 0 .5-.1.7-.3l2.7-2.7H17c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1H1zm4.52 10.15c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41C8.47 4.96 7.46 3.76 5.5 3.76c-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69zm7.57 0c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41c-.28-1.15-1.29-2.35-3.25-2.35-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69z" fill-rule="evenodd"></path></symbol><symbol id="plyr-download" viewBox="0 0 18 18"><path d="M9 13c.3 0 .5-.1.7-.3L15.4 7 14 5.6l-4 4V1H8v8.6l-4-4L2.6 7l5.7 5.7c.2.2.4.3.7.3zm-7 2h14v2H2z"></path></symbol><symbol id="plyr-enter-fullscreen" viewBox="0 0 18 18"><path d="M10 3h3.6l-4 4L11 8.4l4-4V8h2V1h-7zM7 9.6l-4 4V10H1v7h7v-2H4.4l4-4z"></path></symbol><symbol id="plyr-exit-fullscreen" viewBox="0 0 18 18"><path d="M1 12h3.6l-4 4L2 17.4l4-4V17h2v-7H1zM16 .6l-4 4V1h-2v7h7V6h-3.6l4-4z"></path></symbol><symbol id="plyr-fast-forward" viewBox="0 0 18 18"><path d="M7.875 7.171L0 1v16l7.875-6.171V17L18 9 7.875 1z"></path></symbol><symbol id="plyr-logo-vimeo" viewBox="0 0 18 18"><path d="M17 5.3c-.1 1.6-1.2 3.7-3.3 6.4-2.2 2.8-4 4.2-5.5 4.2-.9 0-1.7-.9-2.4-2.6C5 10.9 4.4 6 3 6c-.1 0-.5.3-1.2.8l-.8-1c.8-.7 3.5-3.4 4.7-3.5 1.2-.1 2 .7 2.3 2.5.3 2 .8 6.1 1.8 6.1.9 0 2.5-3.4 2.6-4 .1-.9-.3-1.9-2.3-1.1.8-2.6 2.3-3.8 4.5-3.8 1.7.1 2.5 1.2 2.4 3.3z"></path></symbol><symbol id="plyr-logo-youtube" viewBox="0 0 18 18"><path d="M16.8 5.8c-.2-1.3-.8-2.2-2.2-2.4C12.4 3 9 3 9 3s-3.4 0-5.6.4C2 3.6 1.3 4.5 1.2 5.8 1 7.1 1 9 1 9s0 1.9.2 3.2c.2 1.3.8 2.2 2.2 2.4C5.6 15 9 15 9 15s3.4 0 5.6-.4c1.4-.3 2-1.1 2.2-2.4.2-1.3.2-3.2.2-3.2s0-1.9-.2-3.2zM7 12V6l5 3-5 3z"></path></symbol><symbol id="plyr-muted" viewBox="0 0 18 18"><path d="M12.4 12.5l2.1-2.1 2.1 2.1 1.4-1.4L15.9 9 18 6.9l-1.4-1.4-2.1 2.1-2.1-2.1L11 6.9 13.1 9 11 11.1zM3.786 6.008H.714C.286 6.008 0 6.31 0 6.76v4.512c0 .452.286.752.714.752h3.072l4.071 3.858c.5.3 1.143 0 1.143-.602V2.752c0-.601-.643-.977-1.143-.601L3.786 6.008z"></path></symbol><symbol id="plyr-pause" viewBox="0 0 18 18"><path d="M6 1H3c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h3c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1zm6 0c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h3c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1h-3z"></path></symbol><symbol id="plyr-pip" viewBox="0 0 18 18"><path d="M13.293 3.293L7.022 9.564l1.414 1.414 6.271-6.271L17 7V1h-6z"></path><path d="M13 15H3V5h5V3H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1v-6h-2v5z"></path></symbol><symbol id="plyr-play" viewBox="0 0 18 18"><path d="M15.562 8.1L3.87.225c-.818-.562-1.87 0-1.87.9v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z"></path></symbol><symbol id="plyr-restart" viewBox="0 0 18 18"><path d="M9.7 1.2l.7 6.4 2.1-2.1c1.9 1.9 1.9 5.1 0 7-.9 1-2.2 1.5-3.5 1.5-1.3 0-2.6-.5-3.5-1.5-1.9-1.9-1.9-5.1 0-7 .6-.6 1.4-1.1 2.3-1.3l-.6-1.9C6 2.6 4.9 3.2 4 4.1 1.3 6.8 1.3 11.2 4 14c1.3 1.3 3.1 2 4.9 2 1.9 0 3.6-.7 4.9-2 2.7-2.7 2.7-7.1 0-9.9L16 1.9l-6.3-.7z"></path></symbol><symbol id="plyr-rewind" viewBox="0 0 18 18"><path d="M10.125 1L0 9l10.125 8v-6.171L18 17V1l-7.875 6.171z"></path></symbol><symbol id="plyr-settings" viewBox="0 0 18 18"><path d="M16.135 7.784a2 2 0 01-1.23-2.969c.322-.536.225-.998-.094-1.316l-.31-.31c-.318-.318-.78-.415-1.316-.094a2 2 0 01-2.969-1.23C10.065 1.258 9.669 1 9.219 1h-.438c-.45 0-.845.258-.997.865a2 2 0 01-2.969 1.23c-.536-.322-.999-.225-1.317.093l-.31.31c-.318.318-.415.781-.093 1.317a2 2 0 01-1.23 2.969C1.26 7.935 1 8.33 1 8.781v.438c0 .45.258.845.865.997a2 2 0 011.23 2.969c-.322.536-.225.998.094 1.316l.31.31c.319.319.782.415 1.316.094a2 2 0 012.969 1.23c.151.607.547.865.997.865h.438c.45 0 .845-.258.997-.865a2 2 0 012.969-1.23c.535.321.997.225 1.316-.094l.31-.31c.318-.318.415-.781.094-1.316a2 2 0 011.23-2.969c.607-.151.865-.547.865-.997v-.438c0-.451-.26-.846-.865-.997zM9 12a3 3 0 110-6 3 3 0 010 6z"></path></symbol><symbol id="plyr-volume" viewBox="0 0 18 18"><path d="M15.6 3.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4C15.4 5.9 16 7.4 16 9c0 1.6-.6 3.1-1.8 4.3-.4.4-.4 1 0 1.4.2.2.5.3.7.3.3 0 .5-.1.7-.3C17.1 13.2 18 11.2 18 9s-.9-4.2-2.4-5.7z"></path><path d="M11.282 5.282a.909.909 0 000 1.316c.735.735.995 1.458.995 2.402 0 .936-.425 1.917-.995 2.487a.909.909 0 000 1.316c.145.145.636.262 1.018.156a.725.725 0 00.298-.156C13.773 11.733 14.13 10.16 14.13 9c0-.17-.002-.34-.011-.51-.053-.992-.319-2.005-1.522-3.208a.909.909 0 00-1.316 0zm-7.496.726H.714C.286 6.008 0 6.31 0 6.76v4.512c0 .452.286.752.714.752h3.072l4.071 3.858c.5.3 1.143 0 1.143-.602V2.752c0-.601-.643-.977-1.143-.601L3.786 6.008z"></path></symbol></svg></div>
+
+    
+    <!-- side bar start -->
+ <div class="offcanvas sidebar-offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft">
+    <div class="offcanvas-header sidebar-header">
+      <div class="sidebar-logo">
+        
+
+    </div>
+      <div class="balance">
+      
+        <h5>BALANCE</h5>
+          $ <strong>0.00</strong>
+        
+      </div>
+          </div>
+    <div class="offcanvas-body">
+      <div class="sidebar-content" style="margin-top:-20px">
+        <ul class="link-section">
+          <li style="border-bottom: 1px dashed rgba(var(--dark-text), 0.3); padding-bottom: 20px; border-bottom: 1px dashed rgba(var(--dark-text), 0.3); padding-bottom: 20px;">
+            <a href="topup.html" class="theme-color pages" data-bs-toggle="modal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus sidebar-icon theme-color"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <h3 class="theme-color">TopUp Account</h3>
+            </a>
+          </li>
+          <li>
+            <a href="DEEP.html" class="pages text-white">
+             <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay sidebar-icon text-white"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>-->
+              <h3 class="text-white" a href="DEEP.html" class="pages text-white">DAshboard</h3>
+            </a>
+          </li>
+
+
+           <li>
+        <a class="pages" href="DEEP.html">
+            USA BANK LOGS
+        </a>
+    </li>
+    <li>
+        <a class="pages" href="DEEP.html">
+            CANADIAN BANK LOGS
+        </a>
+    </li>
+    <li>
+        <a class="pages" href="DEEP.html">
+            UK BANK LOGS
+        </a>
+    </li>
+    <li>
+        <a class="pages" href="DEEP.html">
+            MOBILE LOGS
+        </a>
+    </li>
+    <li>
+        <a class="pages" href="DEEP.html">
+            CARDS (Non Vbv Cards)
+        </a>
+    </li>
+
+
+     <li>
+            <a href="DEEP.html" class="pages btn btn-primary">
+             
+              CC Checker
+              </a>
+          </li><li>
+            <a href="DEEP.html" class="pages">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user sidebar-icon text-white"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <h3 class="text-white">Profile</h3>
+            </a>
+          </li>
+
+
+
+
+
+          <li>
+            <form id="logout-form" action="DEEP.html" method="POST" class="pages">
+                <input type="hidden" name="_token" value="riLyqiivCgOQUNkd8UR3dwKMEsBO6qNy06gXcXgO" autocomplete="off">                <button type="submit" class="flex items-center space-x-2" style="background: none; border: none; cursor: pointer;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out sidebar-icon" style="color:rgb(206, 80, 80) !important;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                  <h3 style="color:rgb(206, 80, 80) !important;">Log out</h3>
+                </button>
+              </form>
+
+          </li>
+        </ul>
+        <div class="mode-switch" style="padding-bottom: 20px;">
+          <ul class="switch-section">
+                      </ul>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  <!-- side bar end -->
+
+
+
+    <!-- header start -->
+    <header class="section-t-space">
+        <div class="custom-container">
+          <div class="header-panel">
+            <a class="sidebar-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu menu-icon"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </a>
+        <img class="img-fluid logo" style="width: 80px; height: 80px; border-radius: 50%; cursor: pointer;" src="SHADOWLOGS.png" alt="Dark Sauce" onclick="window.location.href >
+
+            <a href="DEEP.html" class="notification">
+                
+             <svg xmlns="http://www.w3.org/2000/svg"   width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user notification-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>  </svg>
+            </a>
+          </div>
+        </div>
+      </header>
+      <!-- header end -->
+
+    <main class="main">
+        
+    <!-- Toastr CSS -->
+    <script src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-main.js" charset="UTF-8" crossorigin="*"></script><script src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-vendor.js" charset="UTF-8" crossorigin="*"></script><script src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-vendors.js" charset="UTF-8" crossorigin="*"></script><script src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-chunk-common.js" charset="UTF-8" crossorigin="*"></script><script src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-runtime.js" charset="UTF-8" crossorigin="*"></script><script src="https://embed.tawk.to/_s/v4/app/682d3d4dbc8/js/twk-app.js" charset="UTF-8" crossorigin="*"></script><script async="" src="https://embed.tawk.to/657c8ab370c9f2407f8047cf/1hhn7rk66" charset="UTF-8" crossorigin="*"></script><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
+    <section>
+        
+        
+         <div class="custom-container">
+            <div class="title text-white">
+                <h2 class="text-white">Welcome</h2>
+
+                <p class"text-white"="">23 May, 2025</p>
+
+            </div>
+        </div>
+
+        <button class="btn btn-verified">
+            <a href="http://wa.me/+254727493262" class="btn-link"> Whatsapp-Admin</a>
+        </button>
+        <button class="btn btn-become-vendor">
+            <a href="http://t.me/@SBryegon" class="btn-link"> Telegram-Assistant</a>
+        </button>
+      <!-- Web Assistant Button -->
+<button class="btn btn-verify-bin" id="openTawkBtn">
+ Web Assistant
+</button>
+<button class="btn btn-vip-forum">
+Bal $0.00
+</button>
+
+ <a href="topup.html" class="theme-color btn btn-become-vendor pages" <!--data-bs-toggle="modal">-->
+              
+              <h3 class="theme-color" a href="topup.html">TopUp Account</h3>
+            </a>
+
+
+<a href="DEEP.html" class="theme-color btn btn-verified pages">
+    <h3 class="theme-color">Orders</h3>
+</a>
+
+<a href="proofs.html" class="theme-color btn btn-verified pages">
+    <h3 class="theme-color">Proofs&amp;Vouchers</h3>
+</a>
+
+        <!-- Button -->
+
+
+<!-- Include SweetAlert2 library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- JavaScript to handle SweetAlert -->
+<script>
+    document.getElementById('vipForumButton').addEventListener('click', function () {
+        Swal.fire({
+            title: 'VIP Forum Application',
+            html:
+                'We have received your request to join our premium forum.<br>' +
+                'The joining fee is $105.<br>' +
+                'Your temporary username for reference is <strong>@Adrian_Lamo</strong>.<br>' +
+                'Please save this username for your payment reference, as it will only be shown once for security reasons.<br>' +
+                'A new username will be assigned if you make another request.<br><br>' +
+                'To proceed with the application, kindly pay $105.',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Buy',
+            cancelButtonText: 'Close',
+            customClass: {
+                confirmButton: 'btn btn-primary',
+                cancelButton: 'btn btn-secondary'
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Simulate form submission when "Buy" is clicked
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = 'https:shadowlogs/save';
+
+                const csrfToken = document.createElement('input');
+                csrfToken.type = 'hidden';
+                csrfToken.name = '_token';
+                csrfToken.value = 'riLyqiivCgOQUNkd8UR3dwKMEsBO6qNy06gXcXgO'; // Laravel CSRF token
+                form.appendChild(csrfToken);
+
+                const nameInput = document.createElement('input');
+                nameInput.type = 'hidden';
+                nameInput.name = 'name';
+                nameInput.value = 'VIPForum';
+                form.appendChild(nameInput);
+
+                const descriptionInput = document.createElement('input');
+                descriptionInput.type = 'hidden';
+                descriptionInput.name = 'description';
+                descriptionInput.value = 'VIPForum';
+                form.appendChild(descriptionInput);
+
+                const priceInput = document.createElement('input');
+                priceInput.type = 'hidden';
+                priceInput.name = 'price';
+                priceInput.value = '105';
+                form.appendChild(priceInput);
+
+                document.body.appendChild(form);
+                form.submit();
+            }
+        });
+    });
+</script>
+    
+       
+    </section>
+
+    <!-- card start -->
+    <section class="section-b-space row p-3">
+    
+
+      <div class="cyber-container">
+    <style>
+        /* Add these new styles */
+        .hidden-content {
+            max-height: 100px;
+            overflow: hidden;
+            position: relative;
+            filter: blur(3px);
+            transition: all 0.3s ease;
+            margin: 2rem 0;
+        }
+        
+        .hidden-content::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent 0%, #1a1a1a 100%);
+        }
+
+        /* Existing styles remain below */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+        
+        .cyber-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #1a1a1a;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            box-shadow: 0 0 15px #00ff0055;
+            font-family: 'Courier New', monospace;
+            color: #e0e0e0;
+        }
+        
+        .hacker-icons {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #00ff00;
+            margin-bottom: 1rem;
+        }
+        
+        .cyber-heading {
+            text-align: center;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin: 1rem 0;
+            background: linear-gradient(45deg, #00ff00, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: blink 1.5s infinite;
+        }
+        
+        .cyber-text {
+            line-height: 1.6;
+            margin: 1.5rem 0;
+        }
+        
+        .view-more-btn {
+            background: transparent;
+            color: #00ff00;
+            padding: 12px 24px;
+            border: 2px solid #00ff00;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 2rem auto;
+            text-decoration: none;
+        }
+        
+        .view-more-btn:hover {
+            background: #00ff0022;
+            box-shadow: 0 0 15px #00ff0055;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+            100% { opacity: 0.8; }
+        }
+    </style>
+
+    <div class="hacker-icons">
+        <img class="img-fluid logo" style="width: 80px; height: 80px; border-radius: 50%; cursor: pointer;" src="SHADOWLOGS.png" alt="Dark Sauce" onclick="window.location.href='https://shop';">
+    </div>
+
+    <h1 class="cyber-heading">WHAT YOU GET FROM SHADOWLOGS.SHOP</h1>
+    
+    <div class="cyber-text">
+        <p><span style="color: #00ff00">|Updated Bank Logs With Email Access|</span></p>
+        <!-- Visible Content -->
+        <p>Buy Bank Logs with email access and cookies from a legit bank login with DarkDeep. Carders need bank logs on a daily basis for their cashout methods. It becomes so hard to find a real plug to buy bank logs with email access. Since a lot of people are only after your money. To that end, I have decided to drop this write-up on how to buy legit bank logins with email access and cookies if you want to cash out big today.</p>
+
+        <p>There are a lot of things you can do with bank logs ranging from CC top-up, cashing out Zelle, ACH, and a lot more. We have some cashout tutorials on deck for our customers who do not have any bank log cash-out method available.</p>
+
+        <!-- Hidden/Blurred Content -->
+        <div class="hidden-content">
+            <p style="border-left: 3px solid #00ff00; padding-left: 1rem; margin: 1.5rem 0">
+                <strong>NOTE:</strong> When you buy the logs from us, you can request for the accompanying method if you do not have one, but note that we may not be able to give you the method if you did not buy any log from us.
+            </p>
+
+            <p>You will receive the following details when you buy bank logins from Us:</p>
+            <ul style="columns: 2; list-style-type: '• '; color: #00ff00">
+                <li>Username</li>
+                <li>Password</li>
+                <li>Security Questions</li>
+                <li>Answers</li>
+                <li>Holder Name</li>
+                <li>Number Account</li>
+                <li>Bank Name</li>
+                <li>Phone Number</li>
+                <li>Address</li>
+                <li>Date</li>
+                <li>Mother Maiden’s Name</li>
+                <li>SSN</li>
+                <li>CVV2</li>
+            </ul>
+
+            <p style="border: 1px dashed #00ff00; padding: 1rem; margin: 1.5rem 0">
+                <strong style="color: #00ff00">BALANCE:</strong> The balance on these logs vary and is dependent on your order.
+            </p>
+
+            <h2 style="color: #00ffff; border-bottom: 1px solid #00ff00; padding-bottom: 0.5rem">Why Choose Us?</h2>
+            <p>We cash out as much as we can and sell the rest before the owner detects that his/her information is captured and closes the account. Our services are available 24/7 with hacked bank account login information for different bank accounts across the globe (especially in the United States, the United Kingdom, and EU countries).ALL THESE DONE ANONYMOUSLY!.</p>
+        </div>
+    </div>
+
+    <a href="/about-us" class="view-more-btn">View Full Details</a>
+</div>
+    </section>
+    <!-- card end -->
+    
+    <!-- Container -->
+<div class="video-section">
+    <h2 class="video-heading">How to Access Shadowlogs.shop</h2>
+    
+    <div class="video-wrapper">
+        <div class="plyr plyr--full-ui plyr--video plyr--html5 plyr--fullscreen-enabled plyr--paused plyr--stopped plyr--pip-supported"><div class="plyr__controls"><button class="plyr__controls__item plyr__control" type="button" data-plyr="play" aria-pressed="false" aria-label="Play"><svg class="icon--pressed" aria-hidden="true" focusable="false"><use xlink:href="#plyr-pause"></use></svg><svg class="icon--not-pressed" aria-hidden="true" focusable="false"><use xlink:href="#plyr-play"></use></svg><span class="label--pressed plyr__sr-only">Pause</span><span class="label--not-pressed plyr__sr-only">Play</span></button><div class="plyr__controls__item plyr__progress__container"><div class="plyr__progress"><input data-plyr="seek" type="range" min="0" max="100" step="0.01" value="0" autocomplete="off" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" id="plyr-seek-9216" aria-valuetext="00:00 of 00:00" style="--value: 0%;"><progress class="plyr__progress__buffer" min="0" max="100" value="0" role="progressbar" aria-hidden="true">% buffered</progress><span class="plyr__tooltip">00:00</span></div></div><div class="plyr__controls__item plyr__time--current plyr__time" aria-label="Current time" role="timer">00:00</div><div class="plyr__controls__item plyr__volume"><button type="button" class="plyr__control plyr__control--pressed" data-plyr="mute" aria-pressed="true"><svg class="icon--pressed" aria-hidden="true" focusable="false"><use xlink:href="#plyr-muted"></use></svg><svg class="icon--not-pressed" aria-hidden="true" focusable="false"><use xlink:href="#plyr-volume"></use></svg><span class="label--pressed plyr__sr-only">Unmute</span><span class="label--not-pressed plyr__sr-only">Mute</span></button><input data-plyr="volume" type="range" min="0" max="1" step="0.05" value="1" autocomplete="off" role="slider" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="plyr-volume-9216" aria-valuetext="0.0%" style="--value: 0%;"></div><button class="plyr__controls__item plyr__control" type="button" data-plyr="fullscreen" aria-pressed="false"><svg class="icon--pressed" aria-hidden="true" focusable="false"><use xlink:href="#plyr-exit-fullscreen"></use></svg><svg class="icon--not-pressed" aria-hidden="true" focusable="false"><use xlink:href="#plyr-enter-fullscreen"></use></svg><span class="label--pressed plyr__sr-only">Exit fullscreen</span><span class="label--not-pressed plyr__sr-only">Enter fullscreen</span></button></div><div class="plyr__video-wrapper"><video id="Shadowlogs" playsinline="" muted="" autoplay="" preload="auto" class="loading">
+            <source src=""  type="video/mp4">
+            Your browser does not support the video tag.
+        </video><div class="plyr__poster"></div></div><div class="plyr__captions" dir="auto"></div></div>
+    </div>
+</div>
+
+<!-- Plyr.js CSS and JS -->
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+<!-- Initialize Plyr -->
+<script>
+    const player = new Plyr('#shadowlogsVideo', {
+        autoplay: true,
+        muted: true,
+        clickToPlay: true,
+        controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+        settings: [],
+        loadSprite: true,
+        hideControls: false,
+    });
+
+    const video = document.getElementById('shadowlogsVideo');
+
+    video.addEventListener('mouseenter', () => {
+        if (player.muted) {
+            player.muted = false;
+            player.play();
+        }
+    });
+
+    video.addEventListener('touchstart', () => {
+        if (player.muted) {
+            player.muted = false;
+            player.play();
+        }
+    });
+</script>
+
+<!-- Styling -->
+<style>
+    .video-section {
+        text-align: center;
+        margin: 50px auto;
+        padding: 20px;
+    }
+
+    .video-heading {
+        font-size: 2rem;
+        color: #00ffff;
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+        margin-bottom: 20px;
+        font-family: 'Orbitron', sans-serif;
+        letter-spacing: 2px;
+        animation: glowAnimation 2s infinite alternate;
+    }
+
+    @keyframes glowAnimation {
+        from {
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+        }
+        to {
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+    }
+
+    .video-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 8px 24px rgba(0, 255, 255, 0.5);
+        background: #000;
+        padding: 10px;
+    }
+
+    video {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        transition: opacity 1s ease-in-out;
+    }
+
+    video.loading {
+        opacity: 0;
+    }
+
+    video.loaded {
+        opacity: 1;
+    }
+</style>
+
+<!-- Smooth load -->
+<script>
+    video.classList.add('loading');
+    video.addEventListener('canplaythrough', function() {
+        video.classList.remove('loading');
+        video.classList.add('loaded');
+    });
+</script>
+
+
+    <!-- categories section starts -->
+    <section class="categories-section section-b-space">
+        <div class="custom-container">
+            <ul class="categories-list row">
+                                    <li class="col-4 col-md-2 col-xl-2 mb-4">
+                        <center>
+                            <a href="DEEP.html">
+                                <div class="categories-box">
+                                    <i class="iconsax categories-icon" data-icon="bank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 11.7501H3C2.04 11.7501 1.25 10.9601 1.25 10.0001V6.68013C1.25 6.00013 1.71998 5.31013 2.34998 5.06013L11.35 1.46016C11.73 1.31016 12.27 1.31016 12.65 1.46016L21.65 5.06013C22.28 5.31013 22.75 6.01013 22.75 6.68013V10.0001C22.75 10.9601 21.96 11.7501 21 11.7501ZM12 2.84016C11.96 2.84016 11.92 2.84011 11.9 2.85011L2.90997 6.45015C2.84997 6.48015 2.75 6.61013 2.75 6.68013V10.0001C2.75 10.1401 2.86 10.2501 3 10.2501H21C21.14 10.2501 21.25 10.1401 21.25 10.0001V6.68013C21.25 6.61013 21.16 6.48015 21.09 6.45015L12.09 2.85011C12.07 2.84011 12.04 2.84016 12 2.84016Z" fill="#292D32"></path>
+<path d="M22 22.75H2C1.59 22.75 1.25 22.41 1.25 22V19C1.25 18.04 2.04 17.25 3 17.25H21C21.96 17.25 22.75 18.04 22.75 19V22C22.75 22.41 22.41 22.75 22 22.75ZM2.75 21.25H21.25V19C21.25 18.86 21.14 18.75 21 18.75H3C2.86 18.75 2.75 18.86 2.75 19V21.25Z" fill="#292D32"></path>
+<path d="M4 18.75C3.59 18.75 3.25 18.41 3.25 18V11C3.25 10.59 3.59 10.25 4 10.25C4.41 10.25 4.75 10.59 4.75 11V18C4.75 18.41 4.41 18.75 4 18.75Z" fill="#292D32"></path>
+<path d="M8 18.75C7.59 18.75 7.25 18.41 7.25 18V11C7.25 10.59 7.59 10.25 8 10.25C8.41 10.25 8.75 10.59 8.75 11V18C8.75 18.41 8.41 18.75 8 18.75Z" fill="#292D32"></path>
+<path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#292D32"></path>
+<path d="M16 18.75C15.59 18.75 15.25 18.41 15.25 18V11C15.25 10.59 15.59 10.25 16 10.25C16.41 10.25 16.75 10.59 16.75 11V18C16.75 18.41 16.41 18.75 16 18.75Z" fill="#292D32"></path>
+<path d="M20 18.75C19.59 18.75 19.25 18.41 19.25 18V11C19.25 10.59 19.59 10.25 20 10.25C20.41 10.25 20.75 10.59 20.75 11V18C20.75 18.41 20.41 18.75 20 18.75Z" fill="#292D32"></path>
+<path d="M23 22.75H1C0.59 22.75 0.25 22.41 0.25 22C0.25 21.59 0.59 21.25 1 21.25H23C23.41 21.25 23.75 21.59 23.75 22C23.75 22.41 23.41 22.75 23 22.75Z" fill="#292D32"></path>
+<path d="M12 9.25C10.76 9.25 9.75 8.24 9.75 7C9.75 5.76 10.76 4.75 12 4.75C13.24 4.75 14.25 5.76 14.25 7C14.25 8.24 13.24 9.25 12 9.25ZM12 6.25C11.59 6.25 11.25 6.59 11.25 7C11.25 7.41 11.59 7.75 12 7.75C12.41 7.75 12.75 7.41 12.75 7C12.75 6.59 12.41 6.25 12 6.25Z" fill="#292D32"></path>
+</svg>
+</i>
+                                </div>
+                                <h5 class="mt-2 text-center text-white">SPAMMING</h5>
+                            </a>
+                        </center>
+                    </li>
+                                    <li class="col-4 col-md-2 col-xl-2 mb-4">
+                        <center>
+                            <a href="DEEP.html">
+                                <div class="categories-box">
+                                    <i class="iconsax categories-icon" data-icon="bank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 11.7501H3C2.04 11.7501 1.25 10.9601 1.25 10.0001V6.68013C1.25 6.00013 1.71998 5.31013 2.34998 5.06013L11.35 1.46016C11.73 1.31016 12.27 1.31016 12.65 1.46016L21.65 5.06013C22.28 5.31013 22.75 6.01013 22.75 6.68013V10.0001C22.75 10.9601 21.96 11.7501 21 11.7501ZM12 2.84016C11.96 2.84016 11.92 2.84011 11.9 2.85011L2.90997 6.45015C2.84997 6.48015 2.75 6.61013 2.75 6.68013V10.0001C2.75 10.1401 2.86 10.2501 3 10.2501H21C21.14 10.2501 21.25 10.1401 21.25 10.0001V6.68013C21.25 6.61013 21.16 6.48015 21.09 6.45015L12.09 2.85011C12.07 2.84011 12.04 2.84016 12 2.84016Z" fill="#292D32"></path>
+<path d="M22 22.75H2C1.59 22.75 1.25 22.41 1.25 22V19C1.25 18.04 2.04 17.25 3 17.25H21C21.96 17.25 22.75 18.04 22.75 19V22C22.75 22.41 22.41 22.75 22 22.75ZM2.75 21.25H21.25V19C21.25 18.86 21.14 18.75 21 18.75H3C2.86 18.75 2.75 18.86 2.75 19V21.25Z" fill="#292D32"></path>
+<path d="M4 18.75C3.59 18.75 3.25 18.41 3.25 18V11C3.25 10.59 3.59 10.25 4 10.25C4.41 10.25 4.75 10.59 4.75 11V18C4.75 18.41 4.41 18.75 4 18.75Z" fill="#292D32"></path>
+<path d="M8 18.75C7.59 18.75 7.25 18.41 7.25 18V11C7.25 10.59 7.59 10.25 8 10.25C8.41 10.25 8.75 10.59 8.75 11V18C8.75 18.41 8.41 18.75 8 18.75Z" fill="#292D32"></path>
+<path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#292D32"></path>
+<path d="M16 18.75C15.59 18.75 15.25 18.41 15.25 18V11C15.25 10.59 15.59 10.25 16 10.25C16.41 10.25 16.75 10.59 16.75 11V18C16.75 18.41 16.41 18.75 16 18.75Z" fill="#292D32"></path>
+<path d="M20 18.75C19.59 18.75 19.25 18.41 19.25 18V11C19.25 10.59 19.59 10.25 20 10.25C20.41 10.25 20.75 10.59 20.75 11V18C20.75 18.41 20.41 18.75 20 18.75Z" fill="#292D32"></path>
+<path d="M23 22.75H1C0.59 22.75 0.25 22.41 0.25 22C0.25 21.59 0.59 21.25 1 21.25H23C23.41 21.25 23.75 21.59 23.75 22C23.75 22.41 23.41 22.75 23 22.75Z" fill="#292D32"></path>
+<path d="M12 9.25C10.76 9.25 9.75 8.24 9.75 7C9.75 5.76 10.76 4.75 12 4.75C13.24 4.75 14.25 5.76 14.25 7C14.25 8.24 13.24 9.25 12 9.25ZM12 6.25C11.59 6.25 11.25 6.59 11.25 7C11.25 7.41 11.59 7.75 12 7.75C12.41 7.75 12.75 7.41 12.75 7C12.75 6.59 12.41 6.25 12 6.25Z" fill="#292D32"></path>
+</svg>
+</i>
+                                </div>
+                                <h5 class="mt-2 text-center text-white">WOODFOREST BANK</h5>
+                            </a>
+                        </center>
+                    </li>
+                                    <li class="col-4 col-md-2 col-xl-2 mb-4">
+                        <center>
+                            <a href="DEEP.html">
+                                <div class="categories-box">
+                                    <i class="iconsax categories-icon" data-icon="bank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 11.7501H3C2.04 11.7501 1.25 10.9601 1.25 10.0001V6.68013C1.25 6.00013 1.71998 5.31013 2.34998 5.06013L11.35 1.46016C11.73 1.31016 12.27 1.31016 12.65 1.46016L21.65 5.06013C22.28 5.31013 22.75 6.01013 22.75 6.68013V10.0001C22.75 10.9601 21.96 11.7501 21 11.7501ZM12 2.84016C11.96 2.84016 11.92 2.84011 11.9 2.85011L2.90997 6.45015C2.84997 6.48015 2.75 6.61013 2.75 6.68013V10.0001C2.75 10.1401 2.86 10.2501 3 10.2501H21C21.14 10.2501 21.25 10.1401 21.25 10.0001V6.68013C21.25 6.61013 21.16 6.48015 21.09 6.45015L12.09 2.85011C12.07 2.84011 12.04 2.84016 12 2.84016Z" fill="#292D32"></path>
+<path d="M22 22.75H2C1.59 22.75 1.25 22.41 1.25 22V19C1.25 18.04 2.04 17.25 3 17.25H21C21.96 17.25 22.75 18.04 22.75 19V22C22.75 22.41 22.41 22.75 22 22.75ZM2.75 21.25H21.25V19C21.25 18.86 21.14 18.75 21 18.75H3C2.86 18.75 2.75 18.86 2.75 19V21.25Z" fill="#292D32"></path>
+<path d="M4 18.75C3.59 18.75 3.25 18.41 3.25 18V11C3.25 10.59 3.59 10.25 4 10.25C4.41 10.25 4.75 10.59 4.75 11V18C4.75 18.41 4.41 18.75 4 18.75Z" fill="#292D32"></path>
+<path d="M8 18.75C7.59 18.75 7.25 18.41 7.25 18V11C7.25 10.59 7.59 10.25 8 10.25C8.41 10.25 8.75 10.59 8.75 11V18C8.75 18.41 8.41 18.75 8 18.75Z" fill="#292D32"></path>
+<path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#292D32"></path>
+<path d="M16 18.75C15.59 18.75 15.25 18.41 15.25 18V11C15.25 10.59 15.59 10.25 16 10.25C16.41 10.25 16.75 10.59 16.75 11V18C16.75 18.41 16.41 18.75 16 18.75Z" fill="#292D32"></path>
+<path d="M20 18.75C19.59 18.75 19.25 18.41 19.25 18V11C19.25 10.59 19.59 10.25 20 10.25C20.41 10.25 20.75 10.59 20.75 11V18C20.75 18.41 20.41 18.75 20 18.75Z" fill="#292D32"></path>
+<path d="M23 22.75H1C0.59 22.75 0.25 22.41 0.25 22C0.25 21.59 0.59 21.25 1 21.25H23C23.41 21.25 23.75 21.59 23.75 22C23.75 22.41 23.41 22.75 23 22.75Z" fill="#292D32"></path>
+<path d="M12 9.25C10.76 9.25 9.75 8.24 9.75 7C9.75 5.76 10.76 4.75 12 4.75C13.24 4.75 14.25 5.76 14.25 7C14.25 8.24 13.24 9.25 12 9.25ZM12 6.25C11.59 6.25 11.25 6.59 11.25 7C11.25 7.41 11.59 7.75 12 7.75C12.41 7.75 12.75 7.41 12.75 7C12.75 6.59 12.41 6.25 12 6.25Z" fill="#292D32"></path>
+</svg>
+</i>
+                                </div>
+                                <h5 class="mt-2 text-center text-white">Vpns-Socks-Rdps</h5>
+                            </a>
+                        </center>
+                    </li>
+                                    <li class="col-4 col-md-2 col-xl-2 mb-4">
+                        <center>
+                            <a href="DEEP.html">
+                                <div class="categories-box">
+                                    <i class="iconsax categories-icon" data-icon="bank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 11.7501H3C2.04 11.7501 1.25 10.9601 1.25 10.0001V6.68013C1.25 6.00013 1.71998 5.31013 2.34998 5.06013L11.35 1.46016C11.73 1.31016 12.27 1.31016 12.65 1.46016L21.65 5.06013C22.28 5.31013 22.75 6.01013 22.75 6.68013V10.0001C22.75 10.9601 21.96 11.7501 21 11.7501ZM12 2.84016C11.96 2.84016 11.92 2.84011 11.9 2.85011L2.90997 6.45015C2.84997 6.48015 2.75 6.61013 2.75 6.68013V10.0001C2.75 10.1401 2.86 10.2501 3 10.2501H21C21.14 10.2501 21.25 10.1401 21.25 10.0001V6.68013C21.25 6.61013 21.16 6.48015 21.09 6.45015L12.09 2.85011C12.07 2.84011 12.04 2.84016 12 2.84016Z" fill="#292D32"></path>
+<path d="M22 22.75H2C1.59 22.75 1.25 22.41 1.25 22V19C1.25 18.04 2.04 17.25 3 17.25H21C21.96 17.25 22.75 18.04 22.75 19V22C22.75 22.41 22.41 22.75 22 22.75ZM2.75 21.25H21.25V19C21.25 18.86 21.14 18.75 21 18.75H3C2.86 18.75 2.75 18.86 2.75 19V21.25Z" fill="#292D32"></path>
+<path d="M4 18.75C3.59 18.75 3.25 18.41 3.25 18V11C3.25 10.59 3.59 10.25 4 10.25C4.41 10.25 4.75 10.59 4.75 11V18C4.75 18.41 4.41 18.75 4 18.75Z" fill="#292D32"></path>
+<path d="M8 18.75C7.59 18.75 7.25 18.41 7.25 18V11C7.25 10.59 7.59 10.25 8 10.25C8.41 10.25 8.75 10.59 8.75 11V18C8.75 18.41 8.41 18.75 8 18.75Z" fill="#292D32"></path>
+<path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#292D32"></path>
+<path d="M16 18.75C15.59 18.75 15.25 18.41 15.25 18V11C15.25 10.59 15.59 10.25 16 10.25C16.41 10.25 16.75 10.59 16.75 11V18C16.75 18.41 16.41 18.75 16 18.75Z" fill="#292D32"></path>
+<path d="M20 18.75C19.59 18.75 19.25 18.41 19.25 18V11C19.25 10.59 19.59 10.25 20 10.25C20.41 10.25 20.75 10.59 20.75 11V18C20.75 18.41 20.41 18.75 20 18.75Z" fill="#292D32"></path>
+<path d="M23 22.75H1C0.59 22.75 0.25 22.41 0.25 22C0.25 21.59 0.59 21.25 1 21.25H23C23.41 21.25 23.75 21.59 23.75 22C23.75 22.41 23.41 22.75 23 22.75Z" fill="#292D32"></path>
+<path d="M12 9.25C10.76 9.25 9.75 8.24 9.75 7C9.75 5.76 10.76 4.75 12 4.75C13.24 4.75 14.25 5.76 14.25 7C14.25 8.24 13.24 9.25 12 9.25ZM12 6.25C11.59 6.25 11.25 6.59 11.25 7C11.25 7.41 11.59 7.75 12 7.75C12.41 7.75 12.75 7.41 12.75 7C12.75 6.59 12.41 6.25 12 6.25Z" fill="#292D32"></path>
+</svg>
+</i>
+                                </div>
+                                <h5 class="mt-2 text-center text-white">Western Union</h5>
+                            </a>
+                        </center>
+                    </li>
+                                    <li class="col-4 col-md-2 col-xl-2 mb-4">
+                        <center>
+                            <a href="DEEP.html">
+                                <div class="categories-box">
+                                    <i class="iconsax categories-icon" data-icon="bank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 11.7501H3C2.04 11.7501 1.25 10.9601 1.25 10.0001V6.68013C1.25 6.00013 1.71998 5.31013 2.34998 5.06013L11.35 1.46016C11.73 1.31016 12.27 1.31016 12.65 1.46016L21.65 5.06013C22.28 5.31013 22.75 6.01013 22.75 6.68013V10.0001C22.75 10.9601 21.96 11.7501 21 11.7501ZM12 2.84016C11.96 2.84016 11.92 2.84011 11.9 2.85011L2.90997 6.45015C2.84997 6.48015 2.75 6.61013 2.75 6.68013V10.0001C2.75 10.1401 2.86 10.2501 3 10.2501H21C21.14 10.2501 21.25 10.1401 21.25 10.0001V6.68013C21.25 6.61013 21.16 6.48015 21.09 6.45015L12.09 2.85011C12.07 2.84011 12.04 2.84016 12 2.84016Z" fill="#292D32"></path>
+<path d="M22 22.75H2C1.59 22.75 1.25 22.41 1.25 22V19C1.25 18.04 2.04 17.25 3 17.25H21C21.96 17.25 22.75 18.04 22.75 19V22C22.75 22.41 22.41 22.75 22 22.75ZM2.75 21.25H21.25V19C21.25 18.86 21.14 18.75 21 18.75H3C2.86 18.75 2.75 18.86 2.75 19V21.25Z" fill="#292D32"></path>
+<path d="M4 18.75C3.59 18.75 3.25 18.41 3.25 18V11C3.25 10.59 3.59 10.25 4 10.25C4.41 10.25 4.75 10.59 4.75 11V18C4.75 18.41 4.41 18.75 4 18.75Z" fill="#292D32"></path>
+<path d="M8 18.75C7.59 18.75 7.25 18.41 7.25 18V11C7.25 10.59 7.59 10.25 8 10.25C8.41 10.25 8.75 10.59 8.75 11V18C8.75 18.41 8.41 18.75 8 18.75Z" fill="#292D32"></path>
+<path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#292D32"></path>
+<path d="M16 18.75C15.59 18.75 15.25 18.41 15.25 18V11C15.25 10.59 15.59 10.25 16 10.25C16.41 10.25 16.75 10.59 16.75 11V18C16.75 18.41 16.41 18.75 16 18.75Z" fill="#292D32"></path>
+<path d="M20 18.75C19.59 18.75 19.25 18.41 19.25 18V11C19.25 10.59 19.59 10.25 20 10.25C20.41 10.25 20.75 10.59 20.75 11V18C20.75 18.41 20.41 18.75 20 18.75Z" fill="#292D32"></path>
+<path d="M23 22.75H1C0.59 22.75 0.25 22.41 0.25 22C0.25 21.59 0.59 21.25 1 21.25H23C23.41 21.25 23.75 21.59 23.75 22C23.75 22.41 23.41 22.75 23 22.75Z" fill="#292D32"></path>
+<path d="M12 9.25C10.76 9.25 9.75 8.24 9.75 7C9.75 5.76 10.76 4.75 12 4.75C13.24 4.75 14.25 5.76 14.25 7C14.25 8.24 13.24 9.25 12 9.25ZM12 6.25C11.59 6.25 11.25 6.59 11.25 7C11.25 7.41 11.59 7.75 12 7.75C12.41 7.75 12.75 7.41 12.75 7C12.75 6.59 12.41 6.25 12 6.25Z" fill="#292D32"></path>
+</svg>
+</i>
+                                </div>
+                                <h5 class="mt-2 text-center text-white">PAXFUL ACCOUNT LOGS</h5>
+                            </a>
+                        </center>
+                    </li>
+                                    <li class="col-4 col-md-2 col-xl-2 mb-4">
+                        <center>
+                            <a href="DEEP.html">
+                                <div class="categories-box">
+                                    <i class="iconsax categories-icon" data-icon="bank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 11.7501H3C2.04 11.7501 1.25 10.9601 1.25 10.0001V6.68013C1.25 6.00013 1.71998 5.31013 2.34998 5.06013L11.35 1.46016C11.73 1.31016 12.27 1.31016 12.65 1.46016L21.65 5.06013C22.28 5.31013 22.75 6.01013 22.75 6.68013V10.0001C22.75 10.9601 21.96 11.7501 21 11.7501ZM12 2.84016C11.96 2.84016 11.92 2.84011 11.9 2.85011L2.90997 6.45015C2.84997 6.48015 2.75 6.61013 2.75 6.68013V10.0001C2.75 10.1401 2.86 10.2501 3 10.2501H21C21.14 10.2501 21.25 10.1401 21.25 10.0001V6.68013C21.25 6.61013 21.16 6.48015 21.09 6.45015L12.09 2.85011C12.07 2.84011 12.04 2.84016 12 2.84016Z" fill="#292D32"></path>
+<path d="M22 22.75H2C1.59 22.75 1.25 22.41 1.25 22V19C1.25 18.04 2.04 17.25 3 17.25H21C21.96 17.25 22.75 18.04 22.75 19V22C22.75 22.41 22.41 22.75 22 22.75ZM2.75 21.25H21.25V19C21.25 18.86 21.14 18.75 21 18.75H3C2.86 18.75 2.75 18.86 2.75 19V21.25Z" fill="#292D32"></path>
+<path d="M4 18.75C3.59 18.75 3.25 18.41 3.25 18V11C3.25 10.59 3.59 10.25 4 10.25C4.41 10.25 4.75 10.59 4.75 11V18C4.75 18.41 4.41 18.75 4 18.75Z" fill="#292D32"></path>
+<path d="M8 18.75C7.59 18.75 7.25 18.41 7.25 18V11C7.25 10.59 7.59 10.25 8 10.25C8.41 10.25 8.75 10.59 8.75 11V18C8.75 18.41 8.41 18.75 8 18.75Z" fill="#292D32"></path>
+<path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#292D32"></path>
+<path d="M16 18.75C15.59 18.75 15.25 18.41 15.25 18V11C15.25 10.59 15.59 10.25 16 10.25C16.41 10.25 16.75 10.59 16.75 11V18C16.75 18.41 16.41 18.75 16 18.75Z" fill="#292D32"></path>
+<path d="M20 18.75C19.59 18.75 19.25 18.41 19.25 18V11C19.25 10.59 19.59 10.25 20 10.25C20.41 10.25 20.75 10.59 20.75 11V18C20.75 18.41 20.41 18.75 20 18.75Z" fill="#292D32"></path>
+<path d="M23 22.75H1C0.59 22.75 0.25 22.41 0.25 22C0.25 21.59 0.59 21.25 1 21.25H23C23.41 21.25 23.75 21.59 23.75 22C23.75 22.41 23.41 22.75 23 22.75Z" fill="#292D32"></path>
+<path d="M12 9.25C10.76 9.25 9.75 8.24 9.75 7C9.75 5.76 10.76 4.75 12 4.75C13.24 4.75 14.25 5.76 14.25 7C14.25 8.24 13.24 9.25 12 9.25ZM12 6.25C11.59 6.25 11.25 6.59 11.25 7C11.25 7.41 11.59 7.75 12 7.75C12.41 7.75 12.75 7.41 12.75 7C12.75 6.59 12.41 6.25 12 6.25Z" fill="#292D32"></path>
+</svg>
+</i>
+                                </div>
+                                <h5 class="mt-2 text-center text-white">COINBASE-ACCOUNTS LOGS</h5>
+                            </a>
+                        </center>
+                    </li>
+                                    <li class="col-4 col-md-2 col-xl-2 mb-4">
+                        <center>
+                            <a href="DEEP.html">
+                                <div class="categories-box">
+                                    <i class="iconsax categories-icon" data-icon="bank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 11.7501H3C2.04 11.7501 1.25 10.9601 1.25 10.0001V6.68013C1.25 6.00013 1.71998 5.31013 2.34998 5.06013L11.35 1.46016C11.73 1.31016 12.27 1.31016 12.65 1.46016L21.65 5.06013C22.28 5.31013 22.75 6.01013 22.75 6.68013V10.0001C22.75 10.9601 21.96 11.7501 21 11.7501ZM12 2.84016C11.96 2.84016 11.92 2.84011 11.9 2.85011L2.90997 6.45015C2.84997 6.48015 2.75 6.61013 2.75 6.68013V10.0001C2.75 10.1401 2.86 10.2501 3 10.2501H21C21.14 10.2501 21.25 10.1401 21.25 10.0001V6.68013C21.25 6.61013 21.16 6.48015 21.09 6.45015L12.09 2.85011C12.07 2.84011 12.04 2.84016 12 2.84016Z" fill="#292D32"></path>
+<path d="M22 22.75H2C1.59 22.75 1.25 22.41 1.25 22V19C1.25 18.04 2.04 17.25 3 17.25H21C21.96 17.25 22.75 18.04 22.75 19V22C22.75 22.41 22.41 22.75 22 22.75ZM2.75 21.25H21.25V19C21.25 18.86 21.14 18.75 21 18.75H3C2.86 18.75 2.75 18.86 2.75 19V21.25Z" fill="#292D32"></path>
+<path d="M4 18.75C3.59 18.75 3.25 18.41 3.25 18V11C3.25 10.59 3.59 10.25 4 10.25C4.41 10.25 4.75 10.59 4.75 11V18C4.75 18.41 4.41 18.75 4 18.75Z" fill="#292D32"></path>
+<path d="M8 18.75C7.59 18.75 7.25 18.41 7.25 18V11C7.25 10.59 7.59 10.25 8 10.25C8.41 10.25 8.75 10.59 8.75 11V18C8.75 18.41 8.41 18.75 8 18.75Z" fill="#292D32"></path>
+<path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#292D32"></path>
+<path d="M16 18.75C15.59 18.75 15.25 18.41 15.25 18V11C15.25 10.59 15.59 10.25 16 10.25C16.41 10.25 16.75 10.59 16.75 11V18C16.75 18.41 16.41 18.75 16 18.75Z" fill="#292D32"></path>
+<path d="M20 18.75C19.59 18.75 19.25 18.41 19.25 18V11C19.25 10.59 19.59 10.25 20 10.25C20.41 10.25 20.75 10.59 20.75 11V18C20.75 18.41 20.41 18.75 20 18.75Z" fill="#292D32"></path>
+<path d="M23 22.75H1C0.59 22.75 0.25 22.41 0.25 22C0.25 21.59 0.59 21.25 1 21.25H23C23.41 21.25 23.75 21.59 23.75 22C23.75 22.41 23.41 22.75 23 22.75Z" fill="#292D32"></path>
+<path d="M12 9.25C10.76 9.25 9.75 8.24 9.75 7C9.75 5.76 10.76 4.75 12 4.75C13.24 4.75 14.25 5.76 14.25 7C14.25 8.24 13.24 9.25 12 9.25ZM12 6.25C11.59 6.25 11.25 6.59 11.25 7C11.25 7.41 11.59 7.75 12 7.75C12.41 7.75 12.75 7.41 12.75 7C12.75 6.59 12.41 6.25 12 6.25Z" fill="#292D32"></path>
+</svg>
+</i>
+                                </div>
+                                <h5 class="mt-2 text-center text-white">Credit Debit-Cards</h5>
+                            </a>
+                        </center>
+                    </li>
+                                    <li class="col-4 col-md-2 col-xl-2 mb-4">
+                        <center>
+                            <a href="DEEP.html">
+                                <div class="categories-box">
+                                    <i class="iconsax categories-icon" data-icon="bank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 11.7501H3C2.04 11.7501 1.25 10.9601 1.25 10.0001V6.68013C1.25 6.00013 1.71998 5.31013 2.34998 5.06013L11.35 1.46016C11.73 1.31016 12.27 1.31016 12.65 1.46016L21.65 5.06013C22.28 5.31013 22.75 6.01013 22.75 6.68013V10.0001C22.75 10.9601 21.96 11.7501 21 11.7501ZM12 2.84016C11.96 2.84016 11.92 2.84011 11.9 2.85011L2.90997 6.45015C2.84997 6.48015 2.75 6.61013 2.75 6.68013V10.0001C2.75 10.1401 2.86 10.2501 3 10.2501H21C21.14 10.2501 21.25 10.1401 21.25 10.0001V6.68013C21.25 6.61013 21.16 6.48015 21.09 6.45015L12.09 2.85011C12.07 2.84011 12.04 2.84016 12 2.84016Z" fill="#292D32"></path>
+<path d="M22 22.75H2C1.59 22.75 1.25 22.41 1.25 22V19C1.25 18.04 2.04 17.25 3 17.25H21C21.96 17.25 22.75 18.04 22.75 19V22C22.75 22.41 22.41 22.75 22 22.75ZM2.75 21.25H21.25V19C21.25 18.86 21.14 18.75 21 18.75H3C2.86 18.75 2.75 18.86 2.75 19V21.25Z" fill="#292D32"></path>
+<path d="M4 18.75C3.59 18.75 3.25 18.41 3.25 18V11C3.25 10.59 3.59 10.25 4 10.25C4.41 10.25 4.75 10.59 4.75 11V18C4.75 18.41 4.41 18.75 4 18.75Z" fill="#292D32"></path>
+<path d="M8 18.75C7.59 18.75 7.25 18.41 7.25 18V11C7.25 10.59 7.59 10.25 8 10.25C8.41 10.25 8.75 10.59 8.75 11V18C8.75 18.41 8.41 18.75 8 18.75Z" fill="#292D32"></path>
+<path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#292D32"></path>
+<path d="M16 18.75C15.59 18.75 15.25 18.41 15.25 18V11C15.25 10.59 15.59 10.25 16 10.25C16.41 10.25 16.75 10.59 16.75 11V18C16.75 18.41 16.41 18.75 16 18.75Z" fill="#292D32"></path>
+<path d="M20 18.75C19.59 18.75 19.25 18.41 19.25 18V11C19.25 10.59 19.59 10.25 20 10.25C20.41 10.25 20.75 10.59 20.75 11V18C20.75 18.41 20.41 18.75 20 18.75Z" fill="#292D32"></path>
+<path d="M23 22.75H1C0.59 22.75 0.25 22.41 0.25 22C0.25 21.59 0.59 21.25 1 21.25H23C23.41 21.25 23.75 21.59 23.75 22C23.75 22.41 23.41 22.75 23 22.75Z" fill="#292D32"></path>
+<path d="M12 9.25C10.76 9.25 9.75 8.24 9.75 7C9.75 5.76 10.76 4.75 12 4.75C13.24 4.75 14.25 5.76 14.25 7C14.25 8.24 13.24 9.25 12 9.25ZM12 6.25C11.59 6.25 11.25 6.59 11.25 7C11.25 7.41 11.59 7.75 12 7.75C12.41 7.75 12.75 7.41 12.75 7C12.75 6.59 12.41 6.25 12 6.25Z" fill="#292D32"></path>
+</svg>
+</i>
+                                </div>
+                                <h5 class="mt-2 text-center text-white">Japan</h5>
+                            </a>
+                        </center>
+                    </li>
+                
+
+            </ul>
+        </div>
+    </section>
+    <!-- categories section end -->
+
+    <!-- all cards section starts -->
+    <section>
+        <div class="custom-container">
+            <div class="title">
+                <h2 class="text-white">Loading-Transactions</h2>
+                <a href="#quick-links" data-bs-toggle="modal">See all</a>
+            </div>
+
+            <div class="row">
+                                    <div class="col-12 col-md-6 col-xl-4 mb-2">
+                        <div class="transaction-box p-3 shadow rounded">
+                            <a href="javascript:;" class="d-flex gap-3 align-items-center">
+                                <div class="transaction-image">
+                                    
+                                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #28a745;">
+                                    </div>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">
+                                        <h5 class="fw-bold">PNC BANK</h5>
+                                                                                    
+                                            <h3 class="text-success" style="font-weight:bolder">Bal:
+                                                $4200
+                                            </h3>
+                                                                            </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        
+                                        <h5 class="text-muted">
+                                            <i class="fa fa-user"></i>
+                                            *****203b96
+                                        </h5>
+                                        <h5 class="text-muted">$<b>414.00</b></h5>
+                                    </div>
+                                </div>
+                            </a>
+                            
+
+                        </div>
+                    </div>
+                                    <div class="col-12 col-md-6 col-xl-4 mb-2">
+                        <div class="transaction-box p-3 shadow rounded">
+                            <a href="javascript:;" class="d-flex gap-3 align-items-center">
+                                <div class="transaction-image">
+                                    
+                                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #ffc107;">
+                                    </div>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">
+                                        <h5 class="fw-bold">PNC BANK</h5>
+                                                                                    
+                                            <h3 class="text-success" style="font-weight:bolder">Bal:
+                                                $8910
+                                            </h3>
+                                                                            </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        
+                                        <h5 class="text-muted">
+                                            <i class="fa fa-user"></i>
+                                            *****8d3740
+                                        </h5>
+                                        <h5 class="text-muted">$<b>171.00</b></h5>
+                                    </div>
+                                </div>
+                            </a>
+                            
+
+                        </div>
+                    </div>
+                                    <div class="col-12 col-md-6 col-xl-4 mb-2">
+                        <div class="transaction-box p-3 shadow rounded">
+                            <a href="javascript:;" class="d-flex gap-3 align-items-center">
+                                <div class="transaction-image">
+                                    
+                                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #28a745;">
+                                    </div>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">
+                                        <h5 class="fw-bold">Chase Bank log</h5>
+                                                                                    
+                                            <h3 class="text-success" style="font-weight:bolder">BAL:
+                                                $2488
+                                            </h3>
+                                                                            </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        
+                                        <h5 class="text-muted">
+                                            <i class="fa fa-user"></i>
+                                            *****e7b56e
+                                        </h5>
+                                        <h5 class="text-muted">$<b>100.00</b></h5>
+                                    </div>
+                                </div>
+                            </a>
+                            
+
+                        </div>
+                    </div>
+                                    <div class="col-12 col-md-6 col-xl-4 mb-2">
+                        <div class="transaction-box p-3 shadow rounded">
+                            <a href="javascript:;" class="d-flex gap-3 align-items-center">
+                                <div class="transaction-image">
+                                    
+                                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #28a745;">
+                                    </div>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">
+                                        <h5 class="fw-bold">Dump Card with PIN</h5>
+                                                                                    
+                                            <h3 class="text-success" style="font-weight:bolder">BAL:
+                                                $1,000.11
+                                            </h3>
+                                                                            </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        
+                                        <h5 class="text-muted">
+                                            <i class="fa fa-user"></i>
+                                            *****6a750e
+                                        </h5>
+                                        <h5 class="text-muted">$<b>78.00</b></h5>
+                                    </div>
+                                </div>
+                            </a>
+                            
+
+                        </div>
+                    </div>
+                                    <div class="col-12 col-md-6 col-xl-4 mb-2">
+                        <div class="transaction-box p-3 shadow rounded">
+                            <a href="javascript:;" class="d-flex gap-3 align-items-center">
+                                <div class="transaction-image">
+                                    
+                                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #28a745;">
+                                    </div>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">
+                                        <h5 class="fw-bold">Belgium CVV Fullz + (15 pack for random cvv cards)</h5>
+                                                                                    
+                                            <h3 class="text-success" style="font-weight:bolder">BAL:
+                                                $2999
+                                            </h3>
+                                                                            </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        
+                                        <h5 class="text-muted">
+                                            <i class="fa fa-user"></i>
+                                            *****6Vc9c8
+                                        </h5>
+                                        <h5 class="text-muted">$<b>90.00</b></h5>
+                                    </div>
+                                </div>
+                            </a>
+                            
+
+                        </div>
+                    </div>
+                            </div>
+
+    </div></section>
+    <!-- all cards section end -->
+
+    <!-- Transaction section starts -->
+    <section>
+        <div class="custom-container">
+            <div class="title">
+                <h2 class="text-white">My Recent Orders</h2>
+                <a class="text-white" href="DEEP.html">See all</a>
+            </div>
+
+            <div class="container py-5">
+                <div class="row gy-4">
+                    <div class="col-12 text-center mb-4">
+                        <h2 class="fw-bold" style="color: #6a11cb;">Recent Orders</h2>
+                        <p style="color: #6a11cb; font-size: 1.2rem;">Here are the most recent transactions you've made.
+                            Stay informed with order IDs, payment details, and prices!</p>
+                    </div>
+
+                                            <div class="col-12 text-center">
+                            <h5 class="text-muted">No recent orders found. Place your first order to see it here!</h5>
+                        </div>
+                                    </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- Transaction section end -->
+
+    <div class="free-cards p-5 mt-3">
+        <h3 class="text-center text-custom mb-4">Important Guides</h3>
+
+        <!-- Card Grid Layout -->
+        <div class="card-grid">
+                    </div>
+    </div>
+
+    <style>
+        /* Free Cards Section */
+        .free-cards {
+            background: #2c2f36;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Individual Card */
+        .custom-card {
+            background-color: #333;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Card Content */
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .card-text {
+            color: #b3b3b3;
+            font-size: 0.9rem;
+        }
+
+        /* Button Styling */
+        .btn-gradient-custom {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn-gradient-custom:hover {
+            background: linear-gradient(to left, #ff416c, #ff4b2b);
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Icon Styling */
+        .text-custom {
+            color: #ff4b2b;
+        }
+
+        .text-custom:hover {
+            color: #ff416c;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .btn-gradient-custom {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+
+            .card-text {
+                font-size: 0.8rem;
+            }
+        }
+        .me{
+            width: 50px;
+            height: 40px;
+            border-radius: 30px;
+        }
+    </style>
+
+
+    <section class="section-b-space mt-4 mb-4"></section>
+
+    <!-- bottom navbar start -->
+    <div class="navbar-menu" style="max-width: 800px; width: 100%">
+        <div class="scanner-bg">
+            <a href="#quick-links" data-bs-toggle="modal" class="scanner-btn">
+                <img class="img-fluid" src="https://darkdeep.shop/final/assets/images/svg/scan.svg" alt="scan">
+            </a>
+        </div>
+        <ul>
+            <li class="active">
+                <a href="">
+                    <div class="icon">
+                        <img class="unactive" src="https://darkdeep.shop/final/assets/images/svg/bar-chart.svg" alt="bag">
+                        <img class="active" src="https://darkdeep.shop/final/assets/images/svg/bar-chart-fill.svg" alt="bag">
+                    </div>
+                    <h5 class="active">Dashboard</h5>
+                </a>
+            </li>
+
+            <li>
+                <a href="www.coinmarketgap.com">
+                    <div class="icon">
+                        <img class="unactive" src="https://darkdeep.shop/final/assets/images/svg/bitcoin.svg" alt="categories">
+                        <img class="active" src="https://darkdeep.shop/final/assets/images/svg/bitcoin-fill.svg" alt="categories">
+                    </div>
+                    <h5>crypto</h5>
+                </a>
+            </li>
+
+            <li></li>
+
+            <li>
+                <a href="DEEP.html">
+                    <div class="icon">
+                        <img class="unactive" src="https://darkdeep.shop/final/assets/images/svg/mpay.svg" alt="mPay">
+                        <img class="active" src="https://darkdeep.shop/final/assets/images/svg/mpay-fill.svg" alt="mPay">
+                    </div>
+                    <h5>Purchases</h5>
+                </a>
+            </li>
+
+            <li>
+                <a href="DEEP.html">
+                    <div class="icon">
+                        <img class="unactive" src="https://darkdeep.shop/final/assets/images/svg/user.svg" alt="profile">
+                        <img class="active" src="https://darkdeep.shop/final/assets/images/svg/user-fill.svg" alt="profile">
+                    </div>
+                    <h5>My Profile</h5>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- bottom navbar end -->
+
+    <!-- add money modal start -->
+    <div class="modal add-money-modal fade" id="add-money" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Load Account</h2>
+                </div>
+                <div class="modal-body">
+                    <form method="get" action="topup.html" class="mb-2">
+                        <input type="hidden" name="_token" value="" autocomplete="off">                        <div class="form-group">
+                            <label for="inputcard" class="form-label mb-2">Select Preferred Coin</label>
+                            <div class="d-flex gap-2">
+                                <select id="inputcard" class="form-select" name="prefTopUpCoin">
+                                                                            <option value="1" selected=""> DEPOSIT BITCOIN - (BTC) ₿ </option>
+                                                                            <option value="2" selected=""> DEPOSIT USTD -  (TRC-20) </option>
+                                                                            <option value="3" selected=""> DEPOSIT ETHEREUM - ETH (ERC20) </option>
+                                                                            <option value="4" selected=""> DEPOSIT LITECOIN [ LTC] Wallet </option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" name="initAccountTopUp" class="btn theme-btn successfully w-100">
+                            Continue
+                        </button>
+                    </form>
+                </div>
+                <a href="./" class="btn close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x icon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- add money modal end -->
+
+    <!-- add money modal start -->
+    <div class="modal add-money-modal fade" id="change-pin" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Change Password</h2>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="" class="mb-2">
+                        <div class="form-group">
+                            <label for="inputPassword" class="form-label mb-2">New Password</label>
+                            <div class="form-input">
+                                <input type="text" class="form-control" id="inputPassword" name="newpass" required="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword2" class="form-label mb-2">Confirm Password</label>
+                            <div class="form-input">
+                                <input type="password" class="form-control" id="inputPassword2" name="confirmPass" required="">
+                            </div>
+                        </div>
+                        <button type="submit" name="resetPassword" class="btn theme-btn successfully w-100">
+                            Update Password
+                        </button>
+                    </form>
+                </div>
+                <button type="button" class="btn close-btn" data-bs-dismiss="modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x icon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- add money modal end -->
+
+    <!-- quick-links modal start -->
+    <div class="modal add-money-modal fade" id="quick-links" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Quick-Links</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="row mt-1 mb-2 g-3">
+                                                    <a href="DEEP.html" class="col-md-6 col-6">
+                                <div class="bill-box">
+                                    <div class="d-flex gap-3">
+                                        <div class="bill-icon">
+                                            <img class="img-fluid icon" src="https://darkdeep.shop/final/assets/images/svg/mpay-fill.svg" alt="p6">
+                                        </div>
+                                        <div class="bill-details">
+                                            <h5 class="dark-text">USA BANK LOGS</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                                                    <a href="DEEP.html" class="col-md-6 col-6">
+                                <div class="bill-box">
+                                    <div class="d-flex gap-3">
+                                        <div class="bill-icon">
+                                            <img class="img-fluid icon" src="https://darkdeep.shop/final/assets/images/svg/mpay-fill.svg" alt="p6">
+                                        </div>
+                                        <div class="bill-details">
+                                            <h5 class="dark-text">CANADIAN BANK LOGS</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                                                    <a href="DEEP.html" class="col-md-6 col-6">
+                                <div class="bill-box">
+                                    <div class="d-flex gap-3">
+                                        <div class="bill-icon">
+                                            <img class="img-fluid icon" src="https://darkdeep.shop/final/assets/images/svg/mpay-fill.svg" alt="p6">
+                                        </div>
+                                        <div class="bill-details">
+                                            <h5 class="dark-text">UK BANK LOGS</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                                                    <a href="DEEP.html" class="col-md-6 col-6">
+                                <div class="bill-box">
+                                    <div class="d-flex gap-3">
+                                        <div class="bill-icon">
+                                            <img class="img-fluid icon" src="https://darkdeep.shop/final/assets/images/svg/mpay-fill.svg" alt="p6">
+                                        </div>
+                                        <div class="bill-details">
+                                            <h5 class="dark-text">MOBILE LOGS</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                                                    <a href="DEEP.html" class="col-md-6 col-6">
+                                <div class="bill-box">
+                                    <div class="d-flex gap-3">
+                                        <div class="bill-icon">
+                                            <img class="img-fluid icon" src="https://darkdeep.shop/final/assets/images/svg/mpay-fill.svg" alt="p6">
+                                        </div>
+                                        <div class="bill-details">
+                                            <h5 class="dark-text">CARDS (Non Vbv Cards)</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        
+
+                    </div>
+                </div>
+                <button type="button" class="btn close-btn" data-bs-dismiss="modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x icon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <style>
+        .transaction-box {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transaction-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .transaction-box .background-animated {
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
+            animation: rotate-background 8s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes rotate-background {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .transaction-box:hover .btn {
+            background-color: #ffd700;
+            transform: translateY(-3px);
+        }
+
+        /* General button styling */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Unique button styles */
+        .btn-verified {
+            background: linear-gradient(135deg, #2196F3, #00BCD4);
+        }
+
+        .btn-become-vendor {
+            background: linear-gradient(135deg, #FFC107, #FF9800);
+        }
+
+        .btn-verify-bin {
+            background: linear-gradient(135deg, #8BC34A, #388E3C);
+        }
+
+        .btn-vip-forum {
+            background: linear-gradient(135deg, #E91E63, #9C27B0);
+        }
+
+        /* Hover effects */
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Icon and text styling */
+        .btn i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .btn {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+        }
+
+        /* Link styling inside buttons */
+        .btn-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://kit.fontawesome.com/c71710d057.js" crossorigin="anonymous"></script>
+
+
+
+    <!-- swiper js -->
+    <script src="https://darkdeep.shop/final/assets/js/swiper-bundle.min.js"></script>
+    <script src="https://darkdeep.shop/final/assets/js/custom-swiper.js"></script>
+
+    <!-- feather js -->
+    <script src="https://darkdeep.shop/final/assets/js/feather.min.js"></script>
+    <script src="https://darkdeep.shop/final/assets/js/custom-feather.js"></script>
+
+    <!-- iconsax js -->
+    <script src="https://darkdeep.shop/final/assets/js/iconsax.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="https://darkdeep.shop/final/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- homescreen popup js -->
+    <script src="https://darkdeep.shop/final/assets/js/homescreen-popup.js"></script>
+
+    <!-- PWA offcanvas popup js -->
+    <script src="https://darkdeep.shop/final/assets/js/offcanvas-popup.js"></script>
+
+    <!-- DataTables js -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+
+    <!-- script js -->
+    <script src="assets/js/script.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // $('#responsiveTable').DataTable();
+            new DataTable("#responsiveTable");
+        });
+
+        function copyWalletAddress(addr) {
+            navigator.clipboard.writeText(addr);
+            alert("Address Copied");
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+   
+
+
+
+    <style>
+        /* Styling for the Telegram support button */
+        .telegram-support {
+            position: fixed;
+            /* Fix the button to the viewport */
+            bottom: 90px;
+            /* Distance from the bottom */
+            left: 20px;
+            /* Distance from the left */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #0088cc;
+            /* Telegram blue color */
+            border-radius: 50%;
+            /* Make it circular */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Add a subtle shadow */
+            text-decoration: none;
+            /* Remove underline from the link */
+            transition: transform 0.2s ease;
+            /* Smooth hover effect */
+        }
+
+        .telegram-support:hover {
+            transform: scale(1.1);
+            /* Slightly enlarge on hover */
+        }
+
+        .telegram-support svg {
+            fill: white;
+            /* Icon color */
+            width: 24px;
+            /* Icon size */
+            height: 24px;
+            /* Icon size */
+        }
+    </style>
+
+    <!-- Telegram support link -->
+ 
+    
+      <script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function () {
+    var s1 = document.createElement("script"),
+      s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/657c8ab370c9f2407f8047cf/1hhn7rk66';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+
+  // Open Tawk on button click
+  document.addEventListener("DOMContentLoaded", function () {
+    const tawkBtn = document.getElementById("openTawkBtn");
+    tawkBtn.addEventListener("click", function () {
+      if (typeof Tawk_API !== "undefined" && Tawk_API.maximize) {
+        Tawk_API.maximize();
+      }
+    });
+  });
+
+  // Optional: Add user info to Tawk after load
+  Tawk_API.onLoad = function () {
+    var user = {"id":2482,"name":"123ALIF","balance":"0","Bonus":"False","email":"youriannah24@gmail.com","email_verified_at":null,"created_at":"2025-05-23T14:16:49.000000Z","updated_at":"2025-05-23T14:16:49.000000Z","role_as":"0"};
+    if (user) {
+      Tawk_API.setAttributes({
+        name: user.name,
+        email: user.email
+      });
+    }
+  };
+</script>
+
+<script>
+      function goBack() {
+            window.history.back();
+        }
+</script>
+<div id="qmfvibu7o7pk1748009840193" class="widget-visible"><iframe src="about:blank" frameborder="0" scrolling="no" width="64px" height="60px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:20px !important; bottom:20px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:60px !important; min-width:64px !important; max-height:60px !important; max-width:64px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:64px !important; height:60px !important; display:block !important; z-index:1000003 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;" id="z68annddktrk1748009840805" class="" title="chat widget"></iframe><iframe src="about:blank" frameborder="0" scrolling="no" width="350px" height="520px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:20px !important; bottom:98px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:520px !important; min-width:350px !important; max-height:520px !important; max-width:350px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:350px !important; height:520px !important; display:none !important; z-index:1000002 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:18px !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;" id="m2puia4h21rc1748009841893" class="" title="chat widget"></iframe><iframe src="about:blank" frameborder="0" scrolling="no" height="30px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:20px !important; bottom:30px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:45px !important; min-width:350px !important; max-height:45px !important; max-width:350px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:350px !important; height:45px !important; display:none !important; z-index:1000002 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;" id="c39imqgsu74c1748009841951" class="" title="chat widget"></iframe><iframe src="about:blank" frameborder="0" scrolling="no" width="360px" height="145px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:20px !important; bottom:90px; left:auto !important; position:fixed !important; border:0 !important; min-height:145px !important; min-width:360px !important; max-height:145px !important; max-width:360px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:360px !important; height:145px !important; display:none !important; z-index:auto !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;" id="jjiihranp6lo1748009841041" class="" title="chat widget"></iframe><iframe src="about:blank" frameborder="0" scrolling="no" width="124px" height="95px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:0px !important; bottom:30px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:95px !important; min-width:124px !important; max-height:95px !important; max-width:124px !important; padding:0 !important; margin:0px 0 0 0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:rotate(0deg) translateZ(0); -webkit-transform:rotate(0deg) translateZ(0); -ms-transform:rotate(0deg) translateZ(0); width:124px !important; height:95px !important; display:block !important; z-index:1000004 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important; -moz-transform:rotate(0deg) translateZ(0); -o-transform:rotate(0deg) translateZ(0); transform-origin:0; -moz-transform-origin:0; -webkit-transform-origin:0; -o-transform-origin:0; -ms-transform-origin:0;" id="llh9g6u9nhsc1748009840822" class="" title="chat widget"></iframe></div></body></html>
