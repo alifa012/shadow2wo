@@ -178,7 +178,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     
     <script>
-    // Enhanced Firebase configuration with debug logging
+    // Firebase configuration
     const firebaseConfig = {
         apiKey: "AIzaSyBXC6A6NaL1WSHrfCNAuMeYZqx9DFZyToY",
         authDomain: "shadowlogsshop-ec4ca.firebaseapp.com",
@@ -189,83 +189,49 @@
         measurementId: "G-WNEH2RQPVP"
     };
 
+    // State management
+    let authChecked = false;
+    let redirectTimeout = null;
+    const AUTH_CHECK_DELAY = 3000; // 3 seconds before allowing redirect
+
     // Debugging function
     function debugLog(message, data = null) {
         console.log(`[DEBUG] ${message}`, data || '');
     }
 
-    // Initialize Firebase with enhanced error handling
+    // Initialize Firebase
     try {
         debugLog("Initializing Firebase...");
-        const app = firebase.initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig);
         debugLog("Firebase initialized successfully");
         
-        // Enable debug logging for auth
-        if (typeof firebase.auth !== 'undefined') {
-            firebase.auth().useDeviceLanguage();
-            debugLog("Firebase Auth initialized");
-        } else {
-            debugLog("Firebase Auth not available");
-        }
-
-        // Set up auth persistence FIRST
-        debugLog("Setting auth persistence...");
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-            .then(() => {
-                debugLog("Auth persistence set to LOCAL");
-                checkAuthState();
-            })
-            .catch((error) => {
-                debugLog("Error setting persistence:", error);
-                showError("Authentication setup failed. Please refresh the page.");
-            });
+        // Wait for Firebase to be ready, then check auth
+        firebase.auth().onAuthStateChanged(handleAuthStateChange);
+        
+        // Set a minimum delay before allowing redirects
+        setTimeout(() => {
+            authChecked = true;
+            debugLog("Auth check period completed");
+        }, AUTH_CHECK_DELAY);
 
     } catch (error) {
         debugLog("Firebase initialization error:", error);
         showError("Failed to initialize the application. Please check your connection.");
     }
 
-    function checkAuthState() {
-        debugLog("Checking auth state...");
+    function handleAuthStateChange(user) {
+        debugLog("Auth state changed:", user);
         
-        // Check current user immediately
-        const currentUser = firebase.auth().currentUser;
-        debugLog("Immediate currentUser check:", currentUser);
-        
-        if (currentUser) {
-            debugLog("User found in immediate check");
-            handleAuthenticatedUser(currentUser);
+        if (user) {
+            // User is authenticated
+            debugLog("User is authenticated");
+            clearTimeout(redirectTimeout);
+            handleAuthenticatedUser(user);
         } else {
-            debugLog("No user in immediate check, setting up observer");
+            // No user - but wait before redirecting
+            debugLog("No user detected");
+            handleUnauthenticatedUser();
         }
-
-        // Set up auth state observer
-        const authUnsubscribe = firebase.auth().onAuthStateChanged(
-            (user) => {
-                debugLog("Auth state changed:", user);
-                
-                if (user) {
-                    handleAuthenticatedUser(user);
-                } else {
-                    debugLog("No authenticated user found");
-                    // Add slight delay to ensure this isn't a false negative
-                    setTimeout(() => {
-                        const currentUser = firebase.auth().currentUser;
-                        if (!currentUser) {
-                            debugLog("Confirmed no user after delay, redirecting");
-                            redirectToLogin();
-                        }
-                    }, 500);
-                }
-            },
-            (error) => {
-                debugLog("Auth state observer error:", error);
-                showError("Error checking authentication status. Please try again.");
-            }
-        );
-
-        // Store unsubscribe function for cleanup
-        window._authUnsubscribe = authUnsubscribe;
     }
 
     function handleAuthenticatedUser(user) {
@@ -283,6 +249,21 @@
         
         // Set up logout button
         document.getElementById('logout-btn').addEventListener('click', logout);
+    }
+
+    function handleUnauthenticatedUser() {
+        debugLog("Handling unauthenticated state");
+        
+        // Clear any existing redirect timeout
+        clearTimeout(redirectTimeout);
+        
+        // Only redirect after the auth check period and if we're sure there's no user
+        redirectTimeout = setTimeout(() => {
+            if (authChecked && !firebase.auth().currentUser) {
+                debugLog("Confirmed no user after delay, redirecting");
+                redirectToLogin();
+            }
+        }, 1000); // Additional 1 second delay after auth check period
     }
 
     function displayUserInfo(user) {
@@ -343,17 +324,12 @@
         const errorElement = document.getElementById('error-message');
         errorElement.textContent = message;
         errorElement.style.display = 'block';
-        
-        // Show profile content in error state
-        document.getElementById('profile-content').style.display = 'block';
     }
 
-    // Clean up auth listener when page unloads
+    // Clean up timeouts when page unloads
     window.addEventListener('beforeunload', () => {
-        debugLog("Page unloading, cleaning up auth listener");
-        if (window._authUnsubscribe) {
-            window._authUnsubscribe();
-        }
+        debugLog("Page unloading, cleaning up");
+        clearTimeout(redirectTimeout);
     });
     </script>
 </body>
