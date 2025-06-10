@@ -113,21 +113,31 @@
             color: black;
         }
         .loading-spinner {
-            display: none;
-            text-align: center;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
             color: white;
+        }
+        .error-message {
+            color: #ff6b6b;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="profile-container">
         <div class="loading-spinner" id="loading-spinner">
-            <div class="spinner-border text-primary" role="status">
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
                 <span class="visually-hidden">Loading...</span>
             </div>
-            <p class="mt-2">Checking authentication...</p>
+            <p class="mt-3">Checking authentication status...</p>
         </div>
+        
+        <div class="error-message" id="error-message"></div>
         
         <div id="profile-content" style="display: none;">
             <div class="profile-header">
@@ -149,7 +159,7 @@
                         <span class="info-value" id="user-join"></span>
                     </div>
                 </div>
-                <button class="btn btn-logout" onclick="logout()">
+                <button class="btn btn-logout" id="logout-btn">
                     <i class="fas fa-sign-out-alt"></i> Log-out
                 </button>
                 <a href="https://incredible-bublanina-d36719.netlify.app/" class="back-to-store">
@@ -168,7 +178,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     
     <script>
-    // Firebase configuration
+    // Enhanced Firebase configuration with debug logging
     const firebaseConfig = {
         apiKey: "AIzaSyBXC6A6NaL1WSHrfCNAuMeYZqx9DFZyToY",
         authDomain: "shadowlogsshop-ec4ca.firebaseapp.com",
@@ -179,55 +189,106 @@
         measurementId: "G-WNEH2RQPVP"
     };
 
-    // Initialize Firebase
-    try {
-        const app = firebase.initializeApp(firebaseConfig);
-        console.log("Firebase initialized successfully");
-        
-        // Show loading spinner
-        document.getElementById('loading-spinner').style.display = 'block';
-        
-        // Set persistence before checking auth state
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-            .then(() => {
-                console.log("Persistence set to LOCAL");
-                
-                // Check auth state
-                const unsubscribe = firebase.auth().onAuthStateChanged(function(user) {
-                    console.log("Auth state changed:", user);
-                    
-                    // Hide loading spinner
-                    document.getElementById('loading-spinner').style.display = 'none';
-                    
-                    if (user) {
-                        // User is signed in
-                        document.getElementById('profile-content').style.display = 'block';
-                        displayUserInfo(user);
-                    } else {
-                        // No user is signed in
-                        console.log("No authenticated user, redirecting to login");
-                        redirectToLogin();
-                    }
-                }, function(error) {
-                    console.error("Auth state observer error:", error);
-                    showError("Error checking authentication status");
-                });
-                
-                // Store unsubscribe function for cleanup
-                window._authUnsubscribe = unsubscribe;
-            })
-            .catch((error) => {
-                console.error("Error setting persistence:", error);
-                showError("Error initializing authentication");
-            });
-    } catch (error) {
-        console.error("Firebase initialization error:", error);
-        showError("Failed to initialize the app");
+    // Debugging function
+    function debugLog(message, data = null) {
+        console.log(`[DEBUG] ${message}`, data || '');
     }
 
-    // Display user information
+    // Initialize Firebase with enhanced error handling
+    try {
+        debugLog("Initializing Firebase...");
+        const app = firebase.initializeApp(firebaseConfig);
+        debugLog("Firebase initialized successfully");
+        
+        // Enable debug logging for auth
+        if (typeof firebase.auth !== 'undefined') {
+            firebase.auth().useDeviceLanguage();
+            debugLog("Firebase Auth initialized");
+        } else {
+            debugLog("Firebase Auth not available");
+        }
+
+        // Set up auth persistence FIRST
+        debugLog("Setting auth persistence...");
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+            .then(() => {
+                debugLog("Auth persistence set to LOCAL");
+                checkAuthState();
+            })
+            .catch((error) => {
+                debugLog("Error setting persistence:", error);
+                showError("Authentication setup failed. Please refresh the page.");
+            });
+
+    } catch (error) {
+        debugLog("Firebase initialization error:", error);
+        showError("Failed to initialize the application. Please check your connection.");
+    }
+
+    function checkAuthState() {
+        debugLog("Checking auth state...");
+        
+        // Check current user immediately
+        const currentUser = firebase.auth().currentUser;
+        debugLog("Immediate currentUser check:", currentUser);
+        
+        if (currentUser) {
+            debugLog("User found in immediate check");
+            handleAuthenticatedUser(currentUser);
+        } else {
+            debugLog("No user in immediate check, setting up observer");
+        }
+
+        // Set up auth state observer
+        const authUnsubscribe = firebase.auth().onAuthStateChanged(
+            (user) => {
+                debugLog("Auth state changed:", user);
+                
+                if (user) {
+                    handleAuthenticatedUser(user);
+                } else {
+                    debugLog("No authenticated user found");
+                    // Add slight delay to ensure this isn't a false negative
+                    setTimeout(() => {
+                        const currentUser = firebase.auth().currentUser;
+                        if (!currentUser) {
+                            debugLog("Confirmed no user after delay, redirecting");
+                            redirectToLogin();
+                        }
+                    }, 500);
+                }
+            },
+            (error) => {
+                debugLog("Auth state observer error:", error);
+                showError("Error checking authentication status. Please try again.");
+            }
+        );
+
+        // Store unsubscribe function for cleanup
+        window._authUnsubscribe = authUnsubscribe;
+    }
+
+    function handleAuthenticatedUser(user) {
+        debugLog("Handling authenticated user:", user);
+        
+        // Hide loading spinner
+        document.getElementById('loading-spinner').style.display = 'none';
+        document.getElementById('error-message').style.display = 'none';
+        
+        // Show profile content
+        document.getElementById('profile-content').style.display = 'block';
+        
+        // Display user info
+        displayUserInfo(user);
+        
+        // Set up logout button
+        document.getElementById('logout-btn').addEventListener('click', logout);
+    }
+
     function displayUserInfo(user) {
         try {
+            debugLog("Displaying user info for:", user);
+            
             // Set basic user info
             document.getElementById('user-email').textContent = user.email || "Not provided";
             document.getElementById('user-name').textContent = user.displayName || "Anonymous User";
@@ -246,43 +307,50 @@
             const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
             document.getElementById('profile-emoji').textContent = randomEmoji;
         } catch (error) {
-            console.error("Error displaying user info:", error);
+            debugLog("Error displaying user info:", error);
             showError("Error loading profile information");
         }
     }
 
-    // Logout function
     function logout() {
+        debugLog("Logout initiated");
+        
         // Show loading state on button
-        const logoutBtn = document.querySelector('.btn-logout');
+        const logoutBtn = document.getElementById('logout-btn');
         const originalText = logoutBtn.innerHTML;
         logoutBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging out...';
         logoutBtn.disabled = true;
         
-        firebase.auth().signOut().then(function() {
-            console.log("User signed out successfully");
+        firebase.auth().signOut().then(() => {
+            debugLog("User signed out successfully");
             redirectToLogin();
-        }).catch(function(error) {
-            console.error("Error logging out:", error);
-            alert("Error logging out: " + error.message);
+        }).catch((error) => {
+            debugLog("Error logging out:", error);
+            showError("Error logging out: " + error.message);
             logoutBtn.innerHTML = originalText;
             logoutBtn.disabled = false;
         });
     }
 
-    // Redirect to login page
     function redirectToLogin() {
+        debugLog("Redirecting to login page");
         window.location.href = 'https://endearing-daffodil-6bfecd.netlify.app/';
     }
 
-    // Show error message
     function showError(message) {
+        debugLog("Showing error:", message);
         document.getElementById('loading-spinner').style.display = 'none';
-        alert(message);
+        const errorElement = document.getElementById('error-message');
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+        
+        // Show profile content in error state
+        document.getElementById('profile-content').style.display = 'block';
     }
 
     // Clean up auth listener when page unloads
-    window.addEventListener('beforeunload', function() {
+    window.addEventListener('beforeunload', () => {
+        debugLog("Page unloading, cleaning up auth listener");
         if (window._authUnsubscribe) {
             window._authUnsubscribe();
         }
