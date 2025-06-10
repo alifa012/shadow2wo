@@ -126,6 +126,17 @@
             margin-top: 20px;
             display: none;
         }
+        .alert-danger {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -140,6 +151,98 @@
         <div class="error-message" id="error-message"></div>
         
         <div id="profile-content" style="display: none;">
+            <!-- Content will be dynamically populated -->
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    
+    <script>
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBXC6A6NaL1WSHrfCNAuMeYZqx9DFZyToY",
+        authDomain: "shadowlogsshop-ec4ca.firebaseapp.com",
+        projectId: "shadowlogsshop-ec4ca",
+        storageBucket: "shadowlogsshop-ec4ca.appspot.com",
+        messagingSenderId: "709594271975",
+        appId: "1:709594271975:web:6a4bfc8bdcbc51c2859242",
+        measurementId: "G-WNEH2RQPVP"
+    };
+
+    // State management
+    let authChecked = false;
+    let redirectTimeout = null;
+    let inactivityTimer;
+    const AUTH_CHECK_DELAY = 3000; // 3 seconds before allowing redirect
+
+    // Debugging function
+    function debugLog(message, data = null) {
+        console.log(`[DEBUG] ${message}`, data || '');
+    }
+
+    // Initialize Firebase
+    try {
+        debugLog("Initializing Firebase...");
+        firebase.initializeApp(firebaseConfig);
+        debugLog("Firebase initialized successfully");
+        
+        // Set persistence
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+            .then(() => debugLog("Persistence set to LOCAL"))
+            .catch((error) => debugLog("Error setting persistence:", error));
+        
+        // Wait for Firebase to be ready, then check auth
+        firebase.auth().onAuthStateChanged(handleAuthStateChange);
+        
+        // Set a minimum delay before allowing redirects
+        setTimeout(() => {
+            authChecked = true;
+            debugLog("Auth check period completed");
+        }, AUTH_CHECK_DELAY);
+
+    } catch (error) {
+        debugLog("Firebase initialization error:", error);
+        showError("Failed to initialize the application. Please check your connection.");
+    }
+
+    function handleAuthStateChange(user) {
+        debugLog("Auth state changed:", user);
+        
+        if (user) {
+            // User is authenticated
+            debugLog("User is authenticated");
+            clearTimeout(redirectTimeout);
+            handleAuthenticatedUser(user);
+            resetInactivityTimer(); // Start inactivity timer
+        } else {
+            // No user - but wait before redirecting
+            debugLog("No user detected");
+            handleUnauthenticatedUser();
+        }
+    }
+
+    function handleAuthenticatedUser(user) {
+        debugLog("Handling authenticated user:", user);
+        
+        // Hide loading spinner
+        document.getElementById('loading-spinner').style.display = 'none';
+        document.getElementById('error-message').style.display = 'none';
+        
+        // Check email verification
+        if (!user.emailVerified) {
+            showEmailVerificationNotice(user);
+            return;
+        }
+        
+        // Show profile content
+        showProfileContent(user);
+    }
+
+    function showProfileContent(user) {
+        const profileContent = document.getElementById('profile-content');
+        profileContent.innerHTML = `
             <div class="profile-header">
                 <div class="profile-emoji" id="profile-emoji"></div>
                 <h2>My Profile</h2>
@@ -170,84 +273,42 @@
                     <label for="feedback">Save my data</label>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    
-    <script>
-    // Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyBXC6A6NaL1WSHrfCNAuMeYZqx9DFZyToY",
-        authDomain: "shadowlogsshop-ec4ca.firebaseapp.com",
-        projectId: "shadowlogsshop-ec4ca",
-        storageBucket: "shadowlogsshop-ec4ca.appspot.com",
-        messagingSenderId: "709594271975",
-        appId: "1:709594271975:web:6a4bfc8bdcbc51c2859242",
-        measurementId: "G-WNEH2RQPVP"
-    };
-
-    // State management
-    let authChecked = false;
-    let redirectTimeout = null;
-    const AUTH_CHECK_DELAY = 3000; // 3 seconds before allowing redirect
-
-    // Debugging function
-    function debugLog(message, data = null) {
-        console.log(`[DEBUG] ${message}`, data || '');
-    }
-
-    // Initialize Firebase
-    try {
-        debugLog("Initializing Firebase...");
-        firebase.initializeApp(firebaseConfig);
-        debugLog("Firebase initialized successfully");
-        
-        // Wait for Firebase to be ready, then check auth
-        firebase.auth().onAuthStateChanged(handleAuthStateChange);
-        
-        // Set a minimum delay before allowing redirects
-        setTimeout(() => {
-            authChecked = true;
-            debugLog("Auth check period completed");
-        }, AUTH_CHECK_DELAY);
-
-    } catch (error) {
-        debugLog("Firebase initialization error:", error);
-        showError("Failed to initialize the application. Please check your connection.");
-    }
-
-    function handleAuthStateChange(user) {
-        debugLog("Auth state changed:", user);
-        
-        if (user) {
-            // User is authenticated
-            debugLog("User is authenticated");
-            clearTimeout(redirectTimeout);
-            handleAuthenticatedUser(user);
-        } else {
-            // No user - but wait before redirecting
-            debugLog("No user detected");
-            handleUnauthenticatedUser();
-        }
-    }
-
-    function handleAuthenticatedUser(user) {
-        debugLog("Handling authenticated user:", user);
-        
-        // Hide loading spinner
-        document.getElementById('loading-spinner').style.display = 'none';
-        document.getElementById('error-message').style.display = 'none';
-        
-        // Show profile content
-        document.getElementById('profile-content').style.display = 'block';
+        `;
+        profileContent.style.display = 'block';
         
         // Display user info
         displayUserInfo(user);
         
         // Set up logout button
+        document.getElementById('logout-btn').addEventListener('click', logout);
+    }
+
+    function showEmailVerificationNotice(user) {
+        const profileContent = document.getElementById('profile-content');
+        profileContent.innerHTML = `
+            <div class="profile-header">
+                <div class="profile-emoji">✉️</div>
+                <h2>Verify Your Email</h2>
+            </div>
+            <div class="profile-body text-center">
+                <p>We've sent a verification email to <strong>${user.email}</strong>.</p>
+                <p>Please check your inbox and verify your email to access your profile.</p>
+                <button class="btn btn-primary mt-3" id="resend-verification">
+                    <i class="fas fa-paper-plane"></i> Resend Verification Email
+                </button>
+                <button class="btn btn-logout mt-3" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        `;
+        profileContent.style.display = 'block';
+        
+        document.getElementById('resend-verification').addEventListener('click', () => {
+            user.sendEmailVerification()
+                .then(() => alert("Verification email resent!"))
+                .catch(error => showError("Error resending email: " + error.message));
+        });
+        
         document.getElementById('logout-btn').addEventListener('click', logout);
     }
 
@@ -272,21 +333,36 @@
             
             // Set basic user info
             document.getElementById('user-email').textContent = user.email || "Not provided";
-            document.getElementById('user-name').textContent = user.displayName || "Anonymous User";
             
-            // Set join date
-            if (user.metadata && user.metadata.creationTime) {
+            // Better name handling
+            const displayName = user.displayName || 
+                              (user.email ? user.email.split('@')[0] : "Anonymous User");
+            document.getElementById('user-name').textContent = displayName;
+            
+            // Enhanced date formatting
+            if (user.metadata?.creationTime) {
                 const date = new Date(user.metadata.creationTime);
-                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
                 document.getElementById('user-join').textContent = date.toLocaleDateString(undefined, options);
             } else {
                 document.getElementById('user-join').textContent = "Unknown";
             }
             
-            // Set random emoji
-            const emojis = ["😎", "👤", "🦸‍♂️", "🌟", "👨‍💻", "🕵️‍♂️"];
-            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-            document.getElementById('profile-emoji').textContent = randomEmoji;
+            // Set emoji based on user's first letter
+            const emojis = {
+                'a': '😎', 'b': '👤', 'c': '🦸‍♂️', 'd': '🌟', 
+                'e': '👨‍💻', 'f': '🕵️‍♂️', 'default': '👋'
+            };
+            const firstLetter = displayName.charAt(0).toLowerCase();
+            const userEmoji = emojis[firstLetter] || emojis.default;
+            document.getElementById('profile-emoji').textContent = userEmoji;
+            
         } catch (error) {
             debugLog("Error displaying user info:", error);
             showError("Error loading profile information");
@@ -322,14 +398,40 @@
         debugLog("Showing error:", message);
         document.getElementById('loading-spinner').style.display = 'none';
         const errorElement = document.getElementById('error-message');
-        errorElement.textContent = message;
+        errorElement.innerHTML = `
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <div>${message}</div>
+            </div>
+        `;
         errorElement.style.display = 'block';
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            errorElement.style.display = 'none';
+        }, 5000);
     }
+
+    function resetInactivityTimer() {
+        clearTimeout(inactivityTimer);
+        inactivityTimer = setTimeout(() => {
+            if (firebase.auth().currentUser) {
+                debugLog("Session timeout due to inactivity");
+                logout();
+            }
+        }, 30 * 60 * 1000); // 30 minutes
+    }
+
+    // Reset timer on user activity
+    ['mousemove', 'keypress', 'click'].forEach(event => {
+        window.addEventListener(event, resetInactivityTimer);
+    });
 
     // Clean up timeouts when page unloads
     window.addEventListener('beforeunload', () => {
         debugLog("Page unloading, cleaning up");
         clearTimeout(redirectTimeout);
+        clearTimeout(inactivityTimer);
     });
     </script>
 </body>
