@@ -200,9 +200,41 @@ display: none !important;
             <div class="title text-white">
                 <h2 class="text-white">Welcome</h2>
 
-                <p class"text-white"="">23 May, 2025</p>
+                <p class"text-white"=""></p>
+                <div id="datetime"></div>
+<style>
+  #datetime {
+    font-size: 1.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 20px;
+  }
+</style>
 
-            </div>
+<script>
+  function formatDate(date) {
+    const day = date.getDate();
+    const suffix = (day) => {
+      if (day > 3 && day < 21) return 'th';
+      switch (day % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+      }
+    };
+    const month = date.toLocaleString('default', { month: 'long' });
+    const year = date.getFullYear();
+    return `${day}${suffix(day)} ${month}, ${year}`;
+  }
+
+  function updateDateTime() {
+    const now = new Date();
+    document.getElementById('datetime').textContent = formatDate(now);
+  }
+
+  setInterval(updateDateTime, 1000); // Update every second
+  updateDateTime(); // Initial call
+</script>
         </div>
 
         <button class="btn btn-verified">
