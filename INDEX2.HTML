@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - shadowlogs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-color: #343a40;
+            --primary-color: var(--dark-color);
+            --secondary-color: rgb(18, 43, 18);
+            --light-color: rgb(245, 244, 244);
+        }
+        body {
+            background-color: black;
+            background-image: url('ME.Png');
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .profile-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: rgba(2, 97, 98, 0.5);
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px grey;
+            overflow: hidden;
+        }
+        .profile-header {
+            background: rgba(2, 97, 98, 0.5);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .profile-emoji {
+            font-size: 4rem;
+            width: 100px;
+            height: 100px;
+            border-radius: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 1px outset;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: var(--light-color);
+        }
+        .profile-body {
+            padding: 30px;
+        }
+        .profile-info {
+            margin-bottom: 30px;
+        }
+        .info-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .info-label {
+            font-weight: 600;
+            color: black;
+            width: 120px;
+        }
+        .info-value {
+            color: black;
+        }
+        .btn-logout {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .btn-logout:hover {
+            background: rgb(30, 97, 145);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+        .back-to-store {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-to-store:hover {
+            text-decoration: underline;
+        }
+        .save-data {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .save-data input[type="checkbox"] {
+            width: 23px;
+            height: 23px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .save-data label {
+            margin: 0;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-emoji" id="profile-emoji"></div>
+            <h2>My Profile</h2>
+        </div>
+        <div class="profile-body">
+            <div class="profile-info">
+                <div class="info-item">
+                    <span class="info-label">Name:</span>
+                    <span class="info-value" id="user-name"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Email:</span>
+                    <span class="info-value" id="user-email"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Member Since:</span>
+                    <span class="info-value" id="user-join"></span>
+                </div>
+            </div>
+            <button class="btn btn-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Log-out
+            </button>
+            <a href="https://incredible-bublanina-d36719.netlify.app/" class="back-to-store">
+                <i class="fas fa-arrow-left"></i> HOME
+            </a>
+            <div class="save-data">
+                <input type="checkbox" name="confirm" id="feedback">
+                <label for="feedback">Save my data</label>
+            </div>
+        </div>
+    </div>
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script>
+        // TODO: Replace with your Firebase project configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            appId: "YOUR_APP_ID",
+            // ...other config
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Listen for auth state changes
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                document.getElementById('user-email').textContent = user.email || "N/A";
+                document.getElementById('user-name').textContent = user.displayName || "Anonymous";
+                // Format creation time
+                if (user.metadata && user.metadata.creationTime) {
+                    const date = new Date(user.metadata.creationTime);
+                    const options = { year: 'numeric', month: 'long' };
+                    document.getElementById('user-join').textContent = date.toLocaleDateString(undefined, options);
+                } else {
+                    document.getElementById('user-join').textContent = "N/A";
+                }
+            } else {
+                // No user is signed in, redirect to login or home
+                window.location.href = 'https://endearing-daffodil-6bfecd.netlify.app/';
+            }
+        });
+
+        // Emoji selection (customize as you like)
+        document.addEventListener('DOMContentLoaded', function() {
+            const emojis = ["😎", "👤", "🦸‍♂️", "🌟"];
+            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+            document.getElementById('profile-emoji').textContent = randomEmoji;
+        });
+
+        function logout() {
+            firebase.auth().signOut().then(function() {
+                window.location.href = 'https://endearing-daffodil-6bfecd.netlify.app/';
+            }).catch(function(error) {
+                alert("Error logging out: " + error.message);
+            });
+        }
+    </script>
+</body>
+</html>
