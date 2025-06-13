@@ -141,6 +141,9 @@
       margin-left: 5px;
       font-size: 0.8em;
     }
+    .verify-email-btn {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -185,6 +188,15 @@
             <i class="fas fa-check-circle"></i> Verified
           </span>
         </div>
+        <div id="verifyEmailSection" style="display: none;">
+          <div class="alert alert-warning mt-2 p-2">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            <span id="verifyEmailText">Email not verified</span>
+            <button class="btn btn-sm btn-warning verify-email-btn" id="verifyEmailBtn">
+              <i class="fas fa-paper-plane me-1"></i> Send Verification Email
+            </button>
+          </div>
+        </div>
         <div class="profile-balance">
           $<span id="userBalance">0.00</span>
         </div>
@@ -216,7 +228,10 @@
     import { 
       getAuth, 
       signOut,
-      onAuthStateChanged
+      onAuthStateChanged,
+      sendEmailVerification,
+      setPersistence,
+      browserSessionPersistence
     } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-auth.js";
 
     // Initialize Firebase
@@ -233,10 +248,21 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
+    // Set persistence
+    setPersistence(auth, browserSessionPersistence)
+      .then(() => {
+        console.log("Auth persistence set to session");
+      })
+      .catch((error) => {
+        console.error("Error setting auth persistence:", error);
+      });
+
     // DOM elements
     const userEmail = document.getElementById('userEmail');
-    const userEmailContainer = document.getElementById('userEmailContainer');
     const emailVerifiedBadge = document.getElementById('emailVerifiedBadge');
+    const verifyEmailSection = document.getElementById('verifyEmailSection');
+    const verifyEmailBtn = document.getElementById('verifyEmailBtn');
+    const verifyEmailText = document.getElementById('verifyEmailText');
     const userAvatar = document.getElementById('userAvatar');
     const userName = document.getElementById('userName');
     const userBalance = document.getElementById('userBalance');
@@ -359,6 +385,24 @@
       }
     });
 
+    // Handle verify email button
+    verifyEmailBtn.addEventListener('click', async () => {
+      showLoading(verifyEmailBtn, null, true);
+      verifyEmailText.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending verification email...';
+      try {
+        await sendEmailVerification(auth.currentUser);
+        showAlert('Verification email sent! Please check your inbox.', 'success');
+        verifyEmailText.textContent = 'Verification email sent! Check your inbox.';
+      } catch (error) {
+        console.error("Error sending verification email:", error);
+        showAlert('Failed to send verification email. Please try again.', 'danger');
+        verifyEmailText.textContent = 'Error sending verification. Try again.';
+      } finally {
+        showLoading(verifyEmailBtn, null, false);
+        verifyEmailBtn.textContent = 'Resend Verification';
+      }
+    });
+
     // Handle refresh balance
     refreshBalanceBtn.addEventListener('click', updateBalance);
 
@@ -366,16 +410,26 @@
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("User is signed in:", user);
-        // Display user email
-        userEmail.textContent = user.email;
         
-        // Show verification badge if email is verified
+        // Display user info
+        userEmail.textContent = user.email;
+        userName.textContent = user.displayName || user.email.split('@')[0];
+        
+        // Handle email verification status
         if (user.emailVerified) {
           emailVerifiedBadge.style.display = 'inline';
+          verifyEmailSection.style.display = 'none';
+        } else {
+          emailVerifiedBadge.style.display = 'none';
+          verifyEmailSection.style.display = 'block';
         }
         
+        // Generate avatar
         generateRandomAvatar(user.email);
+        
+        // Load balance
         updateBalance();
+        
       } else {
         console.log("No user signed in, redirecting to login");
         showAlert('Please login to access your profile', 'warning');
@@ -388,6 +442,8 @@
     // Initialize the page
     document.addEventListener('DOMContentLoaded', () => {
       console.log("Profile page loaded");
+      // Show loading state while auth state is being checked
+      userEmail.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Loading profile...';
     });
   </script>
 </body>
