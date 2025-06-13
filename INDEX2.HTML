@@ -128,11 +128,21 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+    .alert {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      max-width: 400px;
+    }
   </style>
 </head>
 <body>
   <div class="squares-bg"></div>
   
+  <!-- Alert container -->
+  <div id="alertContainer" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0,0,0,0.2); backdrop-filter: blur(5px);">
     <div class="container">
       <a class="nav-brand" href="#">
@@ -145,13 +155,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Profile</a>
+            <a class="nav-link active" href="#"><i class="fas fa-user me-1"></i> Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link" href="#"><i class="fas fa-tachometer-alt me-1"></i> Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Support</a>
+            <a class="nav-link" href="#"><i class="fas fa-question-circle me-1"></i> Support</a>
           </li>
         </ul>
       </div>
@@ -198,6 +208,7 @@
       onAuthStateChanged
     } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-auth.js";
 
+    // Initialize Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyBXC6A6NaL1WSHrfCNAuMeYZqx9DFZyToY",
       authDomain: "shadowlogsshop-ec4ca.firebaseapp.com",
@@ -222,6 +233,24 @@
     const topupSpinner = document.getElementById('topupSpinner');
     const refreshBalanceBtn = document.getElementById('refreshBalanceBtn');
     const refreshSpinner = document.getElementById('refreshSpinner');
+    const alertContainer = document.getElementById('alertContainer');
+
+    // Show alert message
+    function showAlert(message, type = 'success') {
+      const alert = document.createElement('div');
+      alert.className = `alert alert-${type} alert-dismissible fade show`;
+      alert.role = 'alert';
+      alert.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      `;
+      alertContainer.appendChild(alert);
+      
+      // Auto remove after 5 seconds
+      setTimeout(() => {
+        alert.remove();
+      }, 5000);
+    }
 
     // Generate random avatar background and initials
     function generateRandomAvatar(email) {
@@ -234,8 +263,11 @@
       ];
       
       // Get initials from email
-      const initials = email ? email.charAt(0).toUpperCase() + (email.includes('.') ? 
-                      email.charAt(email.indexOf('.') + 1).toUpperCase() : '') : 'SL';
+      let initials = 'SL';
+      if (email) {
+        const parts = email.split('@')[0].split(/[._-]/);
+        initials = parts.map(part => part.charAt(0).join('').toUpperCase().substring(0, 2);
+      }
       
       // Set random color
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
@@ -250,7 +282,7 @@
     }
 
     // Simulate balance fetching (replace with your actual balance logic)
-    function fetchUserBalance() {
+    async function fetchUserBalance() {
       return new Promise(resolve => {
         setTimeout(() => {
           // Generate a random balance between 10 and 1000 for demo
@@ -266,8 +298,10 @@
       try {
         const balance = await fetchUserBalance();
         userBalance.textContent = balance;
+        showAlert('Balance updated successfully!', 'success');
       } catch (error) {
         console.error("Error fetching balance:", error);
+        showAlert('Failed to update balance. Please try again.', 'danger');
       } finally {
         showLoading(refreshBalanceBtn, refreshSpinner, false);
       }
@@ -284,9 +318,13 @@
       showLoading(logoutBtn, logoutSpinner, true);
       try {
         await signOut(auth);
-        window.location.href = 'https://shadowlogshome.netlify.app/'; // Redirect to login page
+        showAlert('Logged out successfully. Redirecting...', 'success');
+        setTimeout(() => {
+          window.location.href = 'https://shadowlogshome.netlify.app/'; // Redirect to login page
+        }, 1500);
       } catch (error) {
         console.error("Logout error:", error);
+        showAlert('Logout failed. Please try again.', 'danger');
         showLoading(logoutBtn, logoutSpinner, false);
       }
     });
@@ -294,11 +332,18 @@
     // Handle top up button
     topUpBtn.addEventListener('click', async () => {
       showLoading(topUpBtn, topupSpinner, true);
-      // Simulate top up process
-      setTimeout(() => {
-        alert('Top Up functionality would be implemented here. Redirecting to payment gateway...');
+      try {
+        // Simulate top up process
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        showAlert('Redirecting to payment gateway...', 'info');
+        // In a real app, you would redirect to your payment page
+        // window.location.href = '/topup';
+      } catch (error) {
+        console.error("Top up error:", error);
+        showAlert('Failed to initiate top up. Please try again.', 'danger');
+      } finally {
         showLoading(topUpBtn, topupSpinner, false);
-      }, 1000);
+      }
     });
 
     // Handle refresh balance
@@ -307,13 +352,22 @@
     // Check auth state and load user data
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        console.log("User is signed in:", user);
         userEmail.textContent = user.email;
         generateRandomAvatar(user.email);
         updateBalance();
       } else {
-        // Redirect to login if not authenticated
-        window.location.href = 'https://shadowlogshome.netlify.app/';
+        console.log("No user signed in, redirecting to login");
+        showAlert('Please login to access your profile', 'warning');
+        setTimeout(() => {
+          window.location.href = 'https://shadowlogshome.netlify.app/';
+        }, 2000);
       }
+    });
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log("Profile page loaded");
     });
   </script>
 </body>
