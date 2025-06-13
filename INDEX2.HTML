@@ -1,438 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - shadowlogs</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --dark-color: #343a40;
-            --primary-color: var(--dark-color);
-            --secondary-color: rgb(18, 43, 18);
-            --light-color: rgb(245, 244, 244);
-        }
-        body {
-            background-color: black;
-            background-image: url('ME.Png');
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-        .profile-container {
-            max-width: 700px;
-            margin: 50px auto;
-            background: rgba(2, 97, 98, 0.5);
-            border-radius: 15px;
-            box-shadow: 0px 10px 30px grey;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-        }
-        .profile-header {
-            background: rgba(2, 97, 98, 0.5);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        .profile-emoji {
-            font-size: 4rem;
-            width: 100px;
-            height: 100px;
-            border-radius: 20%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            border: 1px outset;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            background: var(--light-color);
-        }
-        .profile-body {
-            padding: 30px;
-        }
-        .profile-info {
-            margin-bottom: 30px;
-        }
-        .info-item {
-            display: flex;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .info-label {
-            font-weight: 600;
-            color: black;
-            width: 120px;
-        }
-        .info-value {
-            color: black;
-            flex: 1;
-        }
-        .btn-logout {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            width: 100%;
-            transition: all 0.3s;
-        }
-        .btn-logout:hover {
-            background: rgb(30, 97, 145);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
-        }
-        .back-to-store {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-to-store:hover {
-            text-decoration: underline;
-        }
-        .save-data {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .save-data input[type="checkbox"] {
-            width: 23px;
-            height: 23px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        .save-data label {
-            margin: 0;
-            font-weight: bolder;
-            color: black;
-        }
-        .loading-spinner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            color: white;
-        }
-        .error-message {
-            color: #ff6b6b;
-            text-align: center;
-            margin-top: 20px;
-            display: none;
-        }
-        .alert-danger {
-            background-color: #f8d7da;
-            border-color: #f5c6cb;
-            color: #721c24;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .btn-primary {
-            background-color: #0d6efd;
-            color: white;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Profile - SHADOWLOGS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --square-size: 30px;
+      --square-color: rgba(255, 255, 255, 0.05);
+      --main-bg: #121212;
+      --container-bg: rgba(32, 32, 32, 0.9);
+      --accent-color: #28a745;
+      --error-color: #dc3545;
+    }
+    body {
+      min-height: 100vh;
+      background-color: var(--main-bg);
+      color: #ffffff;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .squares-bg {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(90deg, var(--square-color) 1px, transparent 1px),
+                  linear-gradient(180deg, var(--square-color) 1px, transparent 1px);
+      background-size: var(--square-size) var(--square-size);
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
+    .profile-container {
+      background: var(--container-bg);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 2rem;
+    }
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
+      margin: 0 auto 1.5rem;
+      border: 3px solid var(--accent-color);
+      box-shadow: 0 0 20px rgba(40, 167, 69, 0.3);
+    }
+    .profile-info {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .profile-email {
+      font-size: 1.1rem;
+      color: #adb5bd;
+      word-break: break-all;
+    }
+    .profile-balance {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 1rem 0;
+      color: var(--accent-color);
+    }
+    .profile-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .btn-profile {
+      padding: 12px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .btn-topup {
+      background: var(--accent-color);
+      border: none;
+    }
+    .btn-topup:hover {
+      background: #218838;
+      transform: translateY(-2px);
+    }
+    .btn-balance {
+      background: #6c757d;
+      border: none;
+    }
+    .btn-balance:hover {
+      background: #5a6268;
+      transform: translateY(-2px);
+    }
+    .btn-logout {
+      background: var(--error-color);
+      border: none;
+    }
+    .btn-logout:hover {
+      background: #c82333;
+      transform: translateY(-2px);
+    }
+    .nav-brand {
+      color: var(--accent-color);
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    .loading-spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-    <div class="profile-container">
-        <div class="loading-spinner" id="loading-spinner">
-            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <p class="mt-3">Checking authentication status...</p>
-        </div>
-        
-        <div class="error-message" id="error-message"></div>
-        
-        <div id="profile-content" style="display: none;">
-            <!-- Content will be dynamically populated -->
-        </div>
+  <div class="squares-bg"></div>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0,0,0,0.2); backdrop-filter: blur(5px);">
+    <div class="container">
+      <a class="nav-brand" href="#">
+        <img src="SHADOWLOGS.png" alt="Logo" style="height: 40px; margin-right: 10px;" />
+        SHADOWLOGS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Support</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    
-    <script>
-    // Firebase configuration
+  <div class="container">
+    <div class="profile-container">
+      <div class="profile-info">
+        <div class="profile-avatar" id="userAvatar">SL</div>
+        <h3 id="userName">User Profile</h3>
+        <div class="profile-email" id="userEmail">user@example.com</div>
+        <div class="profile-balance">
+          $<span id="userBalance">0.00</span>
+        </div>
+      </div>
+      
+      <div class="profile-actions">
+        <button class="btn btn-profile btn-topup" id="topUpBtn">
+          <i class="fas fa-wallet me-2"></i> Top Up Balance
+          <span class="loading-spinner" id="topupSpinner"></span>
+        </button>
+        <button class="btn btn-profile btn-balance" id="refreshBalanceBtn">
+          <i class="fas fa-sync-alt me-2"></i> Refresh Balance
+          <span class="loading-spinner" id="refreshSpinner"></span>
+        </button>
+        <button class="btn btn-profile btn-logout" id="logoutBtn">
+          <i class="fas fa-sign-out-alt me-2"></i> Logout
+          <span class="loading-spinner" id="logoutSpinner"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-app.js";
+    import { 
+      getAuth, 
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-auth.js";
+
     const firebaseConfig = {
-        apiKey: "AIzaSyBXC6A6NaL1WSHrfCNAuMeYZqx9DFZyToY",
-        authDomain: "shadowlogsshop-ec4ca.firebaseapp.com",
-        projectId: "shadowlogsshop-ec4ca",
-        storageBucket: "shadowlogsshop-ec4ca.appspot.com",
-        messagingSenderId: "709594271975",
-        appId: "1:709594271975:web:6a4bfc8bdcbc51c2859242",
-        measurementId: "G-WNEH2RQPVP"
+      apiKey: "AIzaSyBXC6A6NaL1WSHrfCNAuMeYZqx9DFZyToY",
+      authDomain: "shadowlogsshop-ec4ca.firebaseapp.com",
+      projectId: "shadowlogsshop-ec4ca",
+      storageBucket: "shadowlogsshop-ec4ca.appspot.com",
+      messagingSenderId: "709594271975",
+      appId: "1:709594271975:web:6a4bfc8bdcbc51c2859242",
+      measurementId: "G-WNEH2RQPVP"
     };
 
-    // State management
-    let authChecked = false;
-    let redirectTimeout = null;
-    let inactivityTimer;
-    const AUTH_CHECK_DELAY = 3000; // 3 seconds before allowing redirect
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-    // Debugging function
-    function debugLog(message, data = null) {
-        console.log(`[DEBUG] ${message}`, data || '');
+    // DOM elements
+    const userEmail = document.getElementById('userEmail');
+    const userAvatar = document.getElementById('userAvatar');
+    const userName = document.getElementById('userName');
+    const userBalance = document.getElementById('userBalance');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const logoutSpinner = document.getElementById('logoutSpinner');
+    const topUpBtn = document.getElementById('topUpBtn');
+    const topupSpinner = document.getElementById('topupSpinner');
+    const refreshBalanceBtn = document.getElementById('refreshBalanceBtn');
+    const refreshSpinner = document.getElementById('refreshSpinner');
+
+    // Generate random avatar background and initials
+    function generateRandomAvatar(email) {
+      const colors = [
+        'linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)',
+        'linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)',
+        'linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)',
+        'linear-gradient(120deg, #f6d365 0%, #fda085 100%)',
+        'linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)'
+      ];
+      
+      // Get initials from email
+      const initials = email ? email.charAt(0).toUpperCase() + (email.includes('.') ? 
+                      email.charAt(email.indexOf('.') + 1).toUpperCase() : '') : 'SL';
+      
+      // Set random color
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      userAvatar.style.background = randomColor;
+      userAvatar.textContent = initials;
+      
+      // Set username based on email
+      if (email) {
+        const username = email.split('@')[0];
+        userName.textContent = username.charAt(0).toUpperCase() + username.slice(1);
+      }
     }
 
-    // Initialize Firebase
-    try {
-        debugLog("Initializing Firebase...");
-        firebase.initializeApp(firebaseConfig);
-        debugLog("Firebase initialized successfully");
-        
-        // Set persistence
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-            .then(() => debugLog("Persistence set to LOCAL"))
-            .catch((error) => debugLog("Error setting persistence:", error));
-        
-        // Wait for Firebase to be ready, then check auth
-        firebase.auth().onAuthStateChanged(handleAuthStateChange);
-        
-        // Set a minimum delay before allowing redirects
+    // Simulate balance fetching (replace with your actual balance logic)
+    function fetchUserBalance() {
+      return new Promise(resolve => {
         setTimeout(() => {
-            authChecked = true;
-            debugLog("Auth check period completed");
-        }, AUTH_CHECK_DELAY);
-
-    } catch (error) {
-        debugLog("Firebase initialization error:", error);
-        showError("Failed to initialize the application. Please check your connection.");
+          // Generate a random balance between 10 and 1000 for demo
+          const randomBalance = (Math.random() * 1000 + 10).toFixed(2);
+          resolve(randomBalance);
+        }, 800);
+      });
     }
 
-    function handleAuthStateChange(user) {
-        debugLog("Auth state changed:", user);
-        
-        if (user) {
-            // User is authenticated
-            debugLog("User is authenticated");
-            clearTimeout(redirectTimeout);
-            handleAuthenticatedUser(user);
-            resetInactivityTimer(); // Start inactivity timer
-        } else {
-            // No user - but wait before redirecting
-            debugLog("No user detected");
-            handleUnauthenticatedUser();
-        }
+    // Update balance display
+    async function updateBalance() {
+      showLoading(refreshBalanceBtn, refreshSpinner, true);
+      try {
+        const balance = await fetchUserBalance();
+        userBalance.textContent = balance;
+      } catch (error) {
+        console.error("Error fetching balance:", error);
+      } finally {
+        showLoading(refreshBalanceBtn, refreshSpinner, false);
+      }
     }
 
-    function handleAuthenticatedUser(user) {
-        debugLog("Handling authenticated user:", user);
-        
-        // Hide loading spinner
-        document.getElementById('loading-spinner').style.display = 'none';
-        document.getElementById('error-message').style.display = 'none';
-        
-        // Check email verification
-        if (!user.emailVerified) {
-            showEmailVerificationNotice(user);
-            return;
-        }
-        
-        // Show profile content
-        showProfileContent(user);
+    // Show/hide loading spinner
+    function showLoading(button, spinner, show) {
+      spinner.style.display = show ? 'inline-block' : 'none';
+      button.disabled = show;
     }
 
-    function showProfileContent(user) {
-        const profileContent = document.getElementById('profile-content');
-        profileContent.innerHTML = `
-            <div class="profile-header">
-                <div class="profile-emoji" id="profile-emoji"></div>
-                <h2>My Profile</h2>
-            </div>
-            <div class="profile-body">
-                <div class="profile-info">
-                    <div class="info-item">
-                        <span class="info-label">Name:</span>
-                        <span class="info-value" id="user-name"></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Email:</span>
-                        <span class="info-value" id="user-email"></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Member Since:</span>
-                        <span class="info-value" id="user-join"></span>
-                    </div>
-                </div>
-                <button class="btn btn-logout" id="logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> Log-out
-                </button>
-                <a href="https://incredible-bublanina-d36719.netlify.app/" class="back-to-store">
-                    <i class="fas fa-arrow-left"></i> HOME
-                </a>
-                <div class="save-data">
-                    <input type="checkbox" name="confirm" id="feedback">
-                    <label for="feedback">Save my data</label>
-                </div>
-            </div>
-        `;
-        profileContent.style.display = 'block';
-        
-        // Display user info
-        displayUserInfo(user);
-        
-        // Set up logout button
-        document.getElementById('logout-btn').addEventListener('click', logout);
-    }
-
-    function showEmailVerificationNotice(user) {
-        const profileContent = document.getElementById('profile-content');
-        profileContent.innerHTML = `
-            <div class="profile-header">
-                <div class="profile-emoji">✉️</div>
-                <h2>Verify Your Email</h2>
-            </div>
-            <div class="profile-body text-center">
-                <p>We've sent a verification email to <strong>${user.email}</strong>.</p>
-                <p>Please check your inbox and verify your email to access your profile.</p>
-                <button class="btn btn-primary mt-3" id="resend-verification">
-                    <i class="fas fa-paper-plane"></i> Resend Verification Email
-                </button>
-                <button class="btn btn-logout mt-3" id="logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </button>
-            </div>
-        `;
-        profileContent.style.display = 'block';
-        
-        document.getElementById('resend-verification').addEventListener('click', () => {
-            user.sendEmailVerification()
-                .then(() => alert("Verification email resent!"))
-                .catch(error => showError("Error resending email: " + error.message));
-        });
-        
-        document.getElementById('logout-btn').addEventListener('click', logout);
-    }
-
-    function handleUnauthenticatedUser() {
-        debugLog("Handling unauthenticated state");
-        
-        // Clear any existing redirect timeout
-        clearTimeout(redirectTimeout);
-        
-        // Only redirect after the auth check period and if we're sure there's no user
-        redirectTimeout = setTimeout(() => {
-            if (authChecked && !firebase.auth().currentUser) {
-                debugLog("Confirmed no user after delay, redirecting");
-                redirectToLogin();
-            }
-        }, 1000); // Additional 1 second delay after auth check period
-    }
-
-    function displayUserInfo(user) {
-        try {
-            debugLog("Displaying user info for:", user);
-            
-            // Set basic user info
-            document.getElementById('user-email').textContent = user.email || "Not provided";
-            
-            // Better name handling
-            const displayName = user.displayName || 
-                              (user.email ? user.email.split('@')[0] : "Anonymous User");
-            document.getElementById('user-name').textContent = displayName;
-            
-            // Enhanced date formatting
-            if (user.metadata?.creationTime) {
-                const date = new Date(user.metadata.creationTime);
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                };
-                document.getElementById('user-join').textContent = date.toLocaleDateString(undefined, options);
-            } else {
-                document.getElementById('user-join').textContent = "Unknown";
-            }
-            
-            // Set emoji based on user's first letter
-            const emojis = {
-                'a': '😎', 'b': '👤', 'c': '🦸‍♂️', 'd': '🌟', 
-                'e': '👨‍💻', 'f': '🕵️‍♂️', 'default': '👋'
-            };
-            const firstLetter = displayName.charAt(0).toLowerCase();
-            const userEmoji = emojis[firstLetter] || emojis.default;
-            document.getElementById('profile-emoji').textContent = userEmoji;
-            
-        } catch (error) {
-            debugLog("Error displaying user info:", error);
-            showError("Error loading profile information");
-        }
-    }
-
-    function logout() {
-        debugLog("Logout initiated");
-        
-        // Show loading state on button
-        const logoutBtn = document.getElementById('logout-btn');
-        const originalText = logoutBtn.innerHTML;
-        logoutBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging out...';
-        logoutBtn.disabled = true;
-        
-        firebase.auth().signOut().then(() => {
-            debugLog("User signed out successfully");
-            redirectToLogin();
-        }).catch((error) => {
-            debugLog("Error logging out:", error);
-            showError("Error logging out: " + error.message);
-            logoutBtn.innerHTML = originalText;
-            logoutBtn.disabled = false;
-        });
-    }
-
-    function redirectToLogin() {
-        debugLog("Redirecting to login page");
-        window.location.href = 'https://endearing-daffodil-6bfecd.netlify.app/';
-    }
-
-    function showError(message) {
-        debugLog("Showing error:", message);
-        document.getElementById('loading-spinner').style.display = 'none';
-        const errorElement = document.getElementById('error-message');
-        errorElement.innerHTML = `
-            <div class="alert alert-danger d-flex align-items-center" role="alert">
-                <i class="fas fa-exclamation-triangle me-2"></i>
-                <div>${message}</div>
-            </div>
-        `;
-        errorElement.style.display = 'block';
-        
-        // Auto-hide after 5 seconds
-        setTimeout(() => {
-            errorElement.style.display = 'none';
-        }, 5000);
-    }
-
-    function resetInactivityTimer() {
-        clearTimeout(inactivityTimer);
-        inactivityTimer = setTimeout(() => {
-            if (firebase.auth().currentUser) {
-                debugLog("Session timeout due to inactivity");
-                logout();
-            }
-        }, 30 * 60 * 1000); // 30 minutes
-    }
-
-    // Reset timer on user activity
-    ['mousemove', 'keypress', 'click'].forEach(event => {
-        window.addEventListener(event, resetInactivityTimer);
+    // Handle logout
+    logoutBtn.addEventListener('click', async () => {
+      showLoading(logoutBtn, logoutSpinner, true);
+      try {
+        await signOut(auth);
+        window.location.href = 'https://shadowlogshome.netlify.app/'; // Redirect to login page
+      } catch (error) {
+        console.error("Logout error:", error);
+        showLoading(logoutBtn, logoutSpinner, false);
+      }
     });
 
-    // Clean up timeouts when page unloads
-    window.addEventListener('beforeunload', () => {
-        debugLog("Page unloading, cleaning up");
-        clearTimeout(redirectTimeout);
-        clearTimeout(inactivityTimer);
+    // Handle top up button
+    topUpBtn.addEventListener('click', async () => {
+      showLoading(topUpBtn, topupSpinner, true);
+      // Simulate top up process
+      setTimeout(() => {
+        alert('Top Up functionality would be implemented here. Redirecting to payment gateway...');
+        showLoading(topUpBtn, topupSpinner, false);
+      }, 1000);
     });
-    </script>
+
+    // Handle refresh balance
+    refreshBalanceBtn.addEventListener('click', updateBalance);
+
+    // Check auth state and load user data
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        userEmail.textContent = user.email;
+        generateRandomAvatar(user.email);
+        updateBalance();
+      } else {
+        // Redirect to login if not authenticated
+        window.location.href = 'https://shadowlogshome.netlify.app/';
+      }
+    });
+  </script>
 </body>
 </html>
